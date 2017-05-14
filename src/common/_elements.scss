@@ -1,0 +1,15 @@
+@import './colors';
+
+html, body {
+  height: 100%;
+  font-size: 1em; }
+
+a,
+a:visited {
+  text-decoration: none;
+  color: $sf-text-color;
+}
+
+#root {
+  height: 100%;
+}

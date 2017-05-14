@@ -1,0 +1,61 @@
+@import './../common/colors';
+
+.facets-toolbar {
+  display: table;
+  table-layout: fixed;
+  margin: 1.5em 0 1em 0;
+  width: 100%;
+}
+
+.facets-toolbar-search {
+  display: table-cell;
+  width: 25em;
+  vertical-align: top;
+
+  &__title {
+    margin: 0;
+    margin-bottom: 0.5em;
+    letter-spacing: -1px;
+    font-weight: normal;
+    font-size: 1.5em;
+    text-transform: uppercase;
+  }
+}
+
+.facets-toolbar-domains {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  background-color: $sf-light-background-color;
+}
+
+.facets-toolbar-sort {
+  display: table-cell;
+  text-align: center;
+  width: 10em;
+  vertical-align: top;
+
+  &--block {
+    margin: 1em;
+    padding: 0.5em 0 0.25em 0;
+  }
+  
+  &--disabled {
+    .facets-toolbar-sort--block {
+      @extend %sf-widget-disabled-colors;
+    }
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__alphabetical {
+    font-size: 0.75em;
+    padding-right: 1em;
+  }
+
+  &__receipts {
+    font-size: 0.75em;
+  }
+}

@@ -1,0 +1,34 @@
+{
+    "title": {
+        "en": "Comédie-Française Registers Project",
+        "fr": "Projet des registres de la Comédie-Française"
+    },
+    "en": {
+        "en": "English",
+        "fr": "Anglais"
+    },
+    "fr": {
+        "en": "French",
+        "fr": "Français"
+    },
+    "project": {
+        "en": "The Project",
+        "fr": "Le projet"
+    },
+    "encyclopedia": {
+        "en": "Scholarly Resources",
+        "fr": "Espace encyclopédique"
+    },
+    "pedagogia": {
+        "en": "Teaching Resources",
+        "fr": "Espace pédagogique"
+    },
+    "registers": {
+        "en": "Registers",
+        "fr": "Registres"
+    },
+    "tools": {
+        "en": "Tools",
+        "fr": "Outils"
+    }
+}

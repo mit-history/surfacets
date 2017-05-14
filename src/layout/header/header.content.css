@@ -1,0 +1,41 @@
+.header {
+  display: table;
+  table-layout: fixed;
+  width: 100%; }
+  .header__logo {
+    display: table-cell;
+    vertical-align: top;
+    position: relative;
+    height: 4em;
+    width: 6em;
+    padding-left: 4em; }
+    .header__logo > img {
+      position: absolute;
+      display: block;
+      height: 7em;
+      width: auto; }
+  .header__title {
+    display: table-cell;
+    vertical-align: top;
+    font-weight: normal;
+    font-size: 1.75em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 1em;
+    margin: 0; }
+  .header__search {
+    padding: 0 1em;
+    display: table-cell;
+    width: 17rem;
+    vertical-align: top; }
+    .header__search > input {
+      width: 100%;
+      height: 1.5em;
+      line-height: 1.5em; }
+  .header__language {
+    width: 10em;
+    padding: 0 4em;
+    display: table-cell;
+    vertical-align: top;
+    font-size: 0.75em; }

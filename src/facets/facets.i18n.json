@@ -1,0 +1,50 @@
+{
+    "facets-search": {
+        "en": "Facets search",
+        "fr": "Recherche par facettes"
+    },
+    "new-search": {
+        "en": "New search",
+        "fr": "Nouvelle recherche"
+    },
+    "search-use-filters": {
+        "en": "Use all filters",
+        "fr": "Utiliser tous les filtres"
+    },
+    "authors-facet": {
+        "en": "Authors",
+        "fr": "Auteurs"
+    },
+    "plays-facet": {
+        "en": "Plays",
+        "fr": "Pièces"
+    },
+    "genres-facet": {
+        "en": "Genres",
+        "fr": "Genres"
+    },
+    "periods-facet": {
+        "en": "Periods",
+        "fr": "Périodes"
+    },
+    "receipts-facet": {
+        "en": "Receipts",
+        "fr": "Recettes"
+    },
+    "theaters-facet": {
+        "en": "Theaters",
+        "fr": "Salles"
+    },
+    "sort-by": {
+        "en": "Sort By",
+        "fr": "Trier par"
+    },
+    "sort-alphabetical": {
+        "en": "A-Z",
+        "fr": "A-Z"
+    },
+    "sort-receipts": {
+        "en": "(x)",
+        "fr": "(x)"
+    }
+}

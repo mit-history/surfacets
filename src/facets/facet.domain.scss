@@ -1,0 +1,36 @@
+@import './../common/colors';
+
+.facet-domain {
+  @include sf-border-radius();
+
+  @extend %sf-widget-colors;
+
+  padding: 0.5em 1.5em;
+  display: inline-block;
+  cursor: grab;
+  vertical-align: top;
+  margin: 0.5em 0.25em;
+
+  :first-child {
+    margin-left: 0;
+  }
+
+  :last-child {
+    margin-right: 0;
+  }
+
+  &--empty {
+    @include sf-no-select();
+    
+    cursor: default;
+    color: $sf-dark-background-color;
+    background-color: $sf-dark-background-color;
+    border: 1px dashed $sf-border-color;
+
+    &:hover, &:focus {
+      color: $sf-dark-background-color;
+      background-color: $sf-dark-background-color;
+      border: 1px dashed $sf-border-color;
+    }
+  }
+}

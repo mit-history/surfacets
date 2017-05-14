@@ -1,0 +1,17 @@
+html, body {
+  height: 100%;
+  font-size: 1em; }
+
+a,
+a:visited {
+  text-decoration: none;
+  color: #333; }
+
+#root {
+  height: 100%; }
+
+.app {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 1em 0;
+  overflow: hidden; }

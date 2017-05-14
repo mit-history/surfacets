@@ -1,0 +1,21 @@
+@import './../../common/colors';
+
+.header-toolbar {
+    background-color: $sf-main-color;
+    text-align: center;
+    
+    &--active.header-toolbar__item {
+        padding-bottom: 0.75em;
+        border-bottom: 0.25em solid $sf-text-color;
+    }
+
+    &__item {
+        @extend %sf-widget-colors;
+        
+        display: inline-block;
+        vertical-align: top;
+        padding: 1em 2em 0.75em 2em;
+        border-bottom: 0.25em solid $sf-main-color;
+        margin: 0 1em;    
+    }
+}
