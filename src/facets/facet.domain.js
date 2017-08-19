@@ -14,7 +14,11 @@ class FacetDomain extends Component {
       <div draggable={!this.props.domain.active}
         id={this.props.domain.resource} 
         onDragStart={this.dragStart} 
-        className={['facet-domain'].concat(this.props.empty ? 'facet-domain--empty' : []).join(' ')}>
+        className={['facet-domain'].concat(
+          this.props.empty ? 'facet-domain--empty' : []
+          ).concat(
+            this.props.active ? 'facet-domain--active' : []  
+          ).join(' ')}>
         {I18N.get(this.props.domain.resource, pack)}
       </div>
     );

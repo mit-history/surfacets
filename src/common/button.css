@@ -7,29 +7,24 @@
   color: #333;
   background-color: #9acdd0;
   border-color: #9acdd0; }
-
-.button:focus, .button:hover {
-  background-color: #77bcc0;
-  border-color: #77bcc0; }
+  .button:focus, .button:hover {
+    background-color: #77bcc0;
+    border-color: #77bcc0; }
 
 .button--disabled {
   color: #a5a5a5;
   background-color: #e5e5e5; }
-
-.button--disabled:focus, .button--disabled:hover {
-  background-color: #e5e5e5; }
+  .button--disabled:focus, .button--disabled:hover {
+    background-color: #e5e5e5; }
 
 .button {
   border-style: none;
   margin: 0 0.375em;
   padding: 0.5em 1em;
   cursor: pointer; }
-
-.button:first-of-type {
-  margin-left: 0; }
-
-.button:last-of-type {
-  margin-right: 0; }
-
-.button--disabled {
-  cursor: default; }
+  .button:first-of-type {
+    margin-left: 0; }
+  .button:last-of-type {
+    margin-right: 0; }
+  .button--disabled {
+    cursor: default; }

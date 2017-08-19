@@ -7,6 +7,10 @@
         "en": "New search",
         "fr": "Nouvelle recherche"
     },
+    "search": {
+        "en": "Search",
+        "fr": "Recherche"
+    },
     "search-use-filters": {
         "en": "Use all filters",
         "fr": "Utiliser tous les filtres"
@@ -15,25 +19,73 @@
         "en": "Authors",
         "fr": "Auteurs"
     },
+    "author-1-filter": {
+        "en": "AUTHOR 1<sup>st</sup> piece",
+        "fr": "AUTEUR 1<sup>ère</sup> pièce"
+    },
+    "author-2-filter": {
+        "en": "AUTHOR 2<sup>nd</sup> piece",
+        "fr": "AUTEUR 2<sup>ième</sup> pièce"
+    },
     "plays-facet": {
         "en": "Plays",
         "fr": "Pièces"
+    },
+    "play-1-filter": {
+        "en": "PIECE 1<sup>st</sup> play",
+        "fr": "PIÈCE 1<sup>ère</sup> représentation"
+    },
+    "play-2-filter": {
+        "en": "PIECE 2<sup>nd</sup> play",
+        "fr": "PIÈCE 2<sup>ième</sup> représentation"
     },
     "genres-facet": {
         "en": "Genres",
         "fr": "Genres"
     },
+    "genre-1-filter": {
+        "en": "GENRE 1<sup>st</sup> piece",
+        "fr": "GENRE 1<sup>ère</sup> pièce"
+    },
+    "genre-2-filter": {
+        "en": "GENRE 2<sup>nd</sup> piece",
+        "fr": "GENRE 2<sup>ième</sup> pièce"
+    },
     "periods-facet": {
         "en": "Periods",
         "fr": "Périodes"
+    },
+    "period-1-filter": {
+        "en": "SEASONS",
+        "fr": "SAISONS"
+    },
+    "period-2-filter": {
+        "en": "DAYS",
+        "fr": "JOURS"
     },
     "receipts-facet": {
         "en": "Receipts",
         "fr": "Recettes"
     },
+    "receipt-1-filter": {
+        "en": "RECEIPTS dailies",
+        "fr": "RECETTES journalières"
+    },
+    "receipt-2-filter": {
+        "en": "RECEIPTS Parterre",
+        "fr": "RECEIPTS au Parterre"
+    },
     "theaters-facet": {
         "en": "Theaters",
         "fr": "Salles"
+    },
+    "theater-1-filter": {
+        "en": "Author 1<sup>st</sup> piece",
+        "fr": "Auteur 1<sup>ère</sup> pièce"
+    },
+    "theater-2-filter": {
+        "en": "Author 2<sup>nd</sup> piece",
+        "fr": "Auteur 2<sup>ième</sup> pièce"
     },
     "sort-by": {
         "en": "Sort By",

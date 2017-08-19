@@ -1,0 +1,33 @@
+.facet-filter {
+  padding: 0.5em; }
+  .facet-filter__title {
+    background-color: #e5e5e5;
+    color: #333;
+    text-align: left;
+    padding: 0.5em;
+    margin: 0; }
+  .facet-filter__search {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0.2em 0;
+    padding: 0.5em;
+    font-style: italic;
+    border: 0; }
+  .facet-filter__list {
+    padding: 0.5em;
+    background-color: white;
+    height: 6em;
+    overflow-y: auto;
+    width: 100%; }
+  .facet-filter__entry {
+    width: 100%;
+    table-layout: fixed; }
+  .facet-filter__name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: left; }
+  .facet-filter__count {
+    text-align: right; }
+  .facet-filter__information {
+    font-weight: bold; }

@@ -32,7 +32,8 @@ class FacetsContent extends Component {
   drop(event) {
     event.preventDefault();
     let domain = event.dataTransfer.getData('text');
-    this.props.dispatch(activateDomain(domain, this.props.sortedDomains.findIndex(domain => !domain.active) + 1));
+    this.props.dispatch(activateDomain(domain, 
+      this.props.sortedDomains.findIndex(domain => !domain.active) + 1));
   }
 
   render() {

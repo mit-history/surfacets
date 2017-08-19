@@ -1,14 +1,16 @@
 @import './mixins';
 
 $sf-light-background-color: #f4f4f4;
-$sf-dark-background-color: #ebebeb;
+$sf-dark-background-color: #e5e5e5;
+$sf-darker-background-color: #ebebeb;
 $sf-main-color: #9acdd0;
 $sf-alternate-color: #369AB2;
 $sf-main-hover-color: darken($sf-main-color, 10%);
 $sf-alternate-hover-color: darken($sf-alternate-color, 10%);
 $sf-text-color: #333;
 $sf-text-disabled-color: #a5a5a5;
-$sf-disabled-color: #e5e5e5;
+$sf-text-inverted-color: #fff;
+$sf-disabled-color: $sf-dark-background-color;
 $sf-border-color: #cdcdcd;
 
 %sf-widget-colors {
@@ -32,5 +34,19 @@ $sf-border-color: #cdcdcd;
   &:focus,
   &:hover {
     background-color: $sf-disabled-color;
+  }
+}
+
+%sf-widget-alternate-colors {
+  @include sf-transition(background-color 0.2s linear, border-color 0.2s linear, color 0.2s linear);
+  
+  color: $sf-text-inverted-color;
+  background-color: $sf-alternate-color;
+  border-color: $sf-alternate-color;
+
+  &:focus,
+  &:hover {
+    background-color: $sf-alternate-hover-color;
+    border-color: $sf-alternate-hover-color;
   }
 }

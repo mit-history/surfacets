@@ -8,17 +8,11 @@
   white-space: normal;
   width: calc(100% / 6);
   box-sizing: border-box;
+  vertical-align: top;
+  background-color: $sf-light-background-color;
+  overflow-y: auto;
   
   &--empty.facet {
-    background-color: $sf-light-background-color;
     border: 1px dashed $sf-border-color;
-  }
-
-  &__domain {
-    @include sf-border-radius();
-
-    @extend %sf-widget-colors;
-    
-    margin: 1em 3em;
   }
 }
