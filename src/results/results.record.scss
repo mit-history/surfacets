@@ -1,0 +1,50 @@
+@import '../common/colors';
+@import '../common/text';
+
+.results-record {
+    background-color: white;
+    padding: 0.25em;
+
+    &__container {
+        box-sizing: border-box;
+        padding: 1em;
+        display: inline-block;
+        width: calc(100% / 3);
+        background-color: $sf-darker-background-color;
+    }
+
+    &__title {
+        margin: 0;
+    }
+
+    &__separator {
+        border-color: $sf-border-color;
+    }
+
+    &__field {
+        display: inline-block;
+        width: 25%;
+        box-sizing: border-box;
+        text-align: left;
+        padding-left: 0.5em;
+        font-size: 0.875em;
+        font-weight: $sf-font-weight-bold;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;    
+    }
+
+    &__colon {
+        display: inline-block;
+        width: 5%;
+        text-align: center;
+        font-size: 0.875em;
+        color: $sf-text-disabled-color;
+    }
+    &__value {
+        display: inline-block;
+        width: 70%;
+        text-align: left;
+        font-size: 0.875em;
+    }
+}

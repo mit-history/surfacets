@@ -38,7 +38,8 @@ class FacetsContent extends Component {
 
   render() {
     return (
-      <section onDragOver={this.allowDrop} onDrop={this.drop} className='facets-content'>
+      <section onDragOver={this.allowDrop} onDrop={this.drop} 
+        className='facets-content'>
         {this.props.sortedDomains.map(domain => 
           <Facet key={domain.id} domain={domain} empty={!domain.active} />)}
       </section>

@@ -1,4 +1,12 @@
 .facets {
     height: calc(100% - 3em);
     width: 100%;
+
+    &--collapsed {
+        height: auto; 
+
+        .facets-content {
+            display: none;
+        }
+    }
 }

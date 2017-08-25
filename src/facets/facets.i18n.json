@@ -27,6 +27,10 @@
         "en": "AUTHOR 2<sup>nd</sup> piece",
         "fr": "AUTEUR 2<sup>ième</sup> pièce"
     },
+    "author-3-filter": {
+        "en": "AUTHOR 3<sup>nd</sup> piece",
+        "fr": "AUTEUR 3<sup>ième</sup> pièce"
+    },
     "plays-facet": {
         "en": "Plays",
         "fr": "Pièces"
@@ -39,6 +43,10 @@
         "en": "PIECE 2<sup>nd</sup> play",
         "fr": "PIÈCE 2<sup>ième</sup> représentation"
     },
+    "play-3-filter": {
+        "en": "PIECE 3<sup>nd</sup> play",
+        "fr": "PIÈCE 3<sup>ième</sup> représentation"
+    },
     "genres-facet": {
         "en": "Genres",
         "fr": "Genres"
@@ -50,6 +58,10 @@
     "genre-2-filter": {
         "en": "GENRE 2<sup>nd</sup> piece",
         "fr": "GENRE 2<sup>ième</sup> pièce"
+    },
+    "genre-3-filter": {
+        "en": "GENRE 3<sup>nd</sup> piece",
+        "fr": "GENRE 3<sup>ième</sup> pièce"
     },
     "periods-facet": {
         "en": "Periods",

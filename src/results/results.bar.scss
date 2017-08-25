@@ -2,7 +2,7 @@
 
 .results-bar {
   @include sf-border-radius(4px 4px 0 0);
-
+  
   background-color: $sf-alternate-color;
   margin-top: 1em; 
   cursor: pointer;
@@ -15,6 +15,14 @@
 
     .results-bar__arrow {
       background-color: $sf-alternate-hover-color;
+    }
+
+    .chevron--up:after {
+      border-bottom-color: $sf-alternate-hover-color;
+    }
+
+    .chevron--down:after {
+      border-top-color: $sf-alternate-hover-color;
     }
   }
 
@@ -38,4 +46,53 @@
     display: inline-block;
     top: -0.675em;
   }
+}
+
+.chevron {
+  position:relative;
+  display:block;
+  height:15px;
+
+  &:before, &:after {
+    position:absolute;
+    display:block;
+    content:"";
+    border:10px solid transparent;
+  }
+  
+  &--up {
+    top: -0.30em;
+    left: -0.66em;
+    
+    &:before {
+      bottom:0;
+      border-bottom-color: white;
+    }
+    
+    &:after {
+      bottom:-3px;
+      border-bottom-color: $sf-alternate-color;
+    }
+  }
+
+  &--down {
+    bottom: -0.30em;
+    left: -0.66em;
+    
+    &:before {
+      top:0;
+      border-top-color: white;
+    }
+    
+    &:after {
+      top:-3px;
+      border-top-color: $sf-alternate-color;
+    }
+  }
+  
+  
+
+  
+
+  
 }

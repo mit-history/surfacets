@@ -2,5 +2,25 @@
     "entries": {
         "en": "Results ({0})",
         "fr": "Fiches de résultats ({0})"
+    },
+    "record-title": {
+        "en": "Record {0}",
+        "fr": "Fiche {0}"
+    },
+    "record-date": {
+        "en": "Date",
+        "fr": "Date"
+    },
+    "record-title1": {
+        "en": "Play 1",
+        "fr": "Pièce 1"
+    },
+    "record-author": {
+        "en": "Author",
+        "fr": "Auteur"
+    },
+    "record-genre": {
+        "en": "Genre",
+        "fr": "Genre"
     }
 }

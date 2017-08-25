@@ -3,6 +3,9 @@ class I18N {
     return 'fr';
   }
   static get(resource, pack) {
+    if(!pack[resource]) {
+      console.error(`Cannot find I18N resource: ${resource}`);
+    }
     return pack[resource][I18N.lang()];
   }
 
