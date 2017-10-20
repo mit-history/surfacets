@@ -1,7 +1,21 @@
+
+let language = sessionStorage.getItem('lang');
+
+if(!language) {
+  language = 'fr';
+}
+
 class I18N {
+
   static lang() {
-    return 'fr';
+    return language;
   }
+
+  static changeLanguage(lang) { 
+    language = lang;
+    sessionStorage.setItem('lang', language);
+  }
+  
   static get(resource, pack) {
     if(!pack[resource]) {
       console.error(`Cannot find I18N resource: ${resource}`);

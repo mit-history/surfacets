@@ -2,18 +2,25 @@
 
 .header-toolbar {
     background-color: $sf-main-color;
-    text-align: center;
-    
-    &--active.header-toolbar__item {
-        padding-bottom: 0.75em;
-        border-bottom: 0.25em solid $sf-text-color;
-    }
+    text-align: center;        
 
-    &__item {
+    &__item {                
+        display: inline-block;
+        height: 100%;
+        vertical-align: top;        
+    }
+}
+
+.header-item {    
+    &__link {
         @extend %sf-widget-colors;
         
-        display: inline-block;
-        vertical-align: top;
+        &--active.header-item__link {
+            padding-bottom: 0.75em;
+            border-bottom: 0.25em solid $sf-text-color;
+        }
+
+        display: inline-block;        
         padding: 1em 2em 0.75em 2em;
         border-bottom: 0.25em solid $sf-main-color;
         margin: 0 1em;    

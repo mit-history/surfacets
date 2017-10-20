@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import './button.css';
 
-class Button extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      classes: ['button'].concat(props.disabled ? ['button--disabled']: [])
-    };
-  }
-
+class Button extends Component {  
   render() {
     return (
-      <button className={this.state.classes.join(' ')}>
+      <button 
+        disabled={this.props.disabled}
+        className={['button'].concat(this.props.disabled ? ['button--disabled']: []).join(' ')} 
+        onClick={this.props.onClick}>
         {this.props.title}
       </button>
     );

@@ -1,4 +1,5 @@
 export const ACTIVATE_DOMAIN = 'ACTIVATE_DOMAIN';
+export const RESET_DOMAINS = 'RESET_DOMAINS';
 
 export function activateDomain(domain, index) {
   return {
@@ -7,3 +8,9 @@ export function activateDomain(domain, index) {
     index: index
   }
 };
+
+export function resetDomains() {
+  return {
+    type: RESET_DOMAINS
+  }
+}

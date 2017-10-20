@@ -15,20 +15,40 @@
         "en": "The Project",
         "fr": "Le projet"
     },
+    "project-url": {
+        "en": "http://cfregisters.org/en/project-history",
+        "fr": "http://cfregisters.org/fr/historique-du-projet"
+    },
     "encyclopedia": {
         "en": "Scholarly Resources",
         "fr": "Espace encyclopédique"
+    },
+    "encyclopedia-url": {
+        "en": "http://cfregisters.org/en/scholarly-resources",
+        "fr": "http://cfregisters.org/fr/espace-encyclopédique"
     },
     "pedagogia": {
         "en": "Teaching Resources",
         "fr": "Espace pédagogique"
     },
+    "pedagogia-url": {
+        "en": "http://cfregisters.org/en/teaching-resources",
+        "fr": "http://cfregisters.org/fr/espace-pédagogique"
+    },
     "registers": {
         "en": "Registers",
         "fr": "Registres"
     },
+    "registers-url": {
+        "en": "http://cfregisters.org/en/registers",
+        "fr": "http://cfregisters.org/fr/registres"
+    },
     "tools": {
         "en": "Tools",
         "fr": "Outils"
+    },
+    "tools-url": {
+        "en": "",
+        "fr": ""
     }
 }

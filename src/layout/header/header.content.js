@@ -5,6 +5,12 @@ import pack from './header.i18n.json';
 import logo from './logo.png'; 
 
 class HeaderContent extends Component {
+  constructor(props) {
+    super(props);
+    this.handleClickEnglish = this.handleClickEnglish.bind(this);
+    this.handleClickFrench = this.handleClickFrench.bind(this);
+  }
+
   render() {
     return (
       <div className='header'>
@@ -17,15 +23,21 @@ class HeaderContent extends Component {
         <div className='header__search'>
           <input type='text'/>
         </div><div className='header__language'>
-          <a href=''>{I18N.get('fr', pack)}</a>
+          <a href='' onClick={this.handleClickFrench}>{I18N.get('fr', pack)}</a>
           <span> | </span>
-          <a href=''>{I18N.get('en', pack)}</a>
+          <a href='' onClick={this.handleClickEnglish}>{I18N.get('en', pack)}</a>
         </div>        
       </div>
     );
   }
+
+  handleClickEnglish(event) {
+    I18N.changeLanguage('en');
+  }
+
+  handleClickFrench(event) {
+    I18N.changeLanguage('fr');
+  }
 }
 
 export default HeaderContent;
-
-

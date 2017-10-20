@@ -8,11 +8,11 @@ class HeaderToolbar extends Component {
     super(props);
     this.state = {
       items: [
-        {resource: 'project'},
-        {resource: 'encyclopedia'},
-        {resource: 'pedagogia'},
-        {resource: 'registers'},
-        {resource: 'tools', active: true}
+        {resource: 'project', url: 'project-url'},
+        {resource: 'encyclopedia', url: 'encyclopedia-url'},
+        {resource: 'pedagogia', url: 'pedagogia-url'},
+        {resource: 'registers', url: 'registers-url'},
+        {resource: 'tools', url: 'tools-url', active: true}
       ]
     } 
   }
@@ -21,9 +21,11 @@ class HeaderToolbar extends Component {
     return (
       <nav className='header-toolbar'>
          {this.state.items.map(item => 
-          <div key={item.resource} className={['header-toolbar__item'].concat(
-              item.active ? ['header-toolbar--active'] : []).join(' ')}>
-            {I18N.get(item.resource, pack)}
+          <div key={item.resource} className={['header-toolbar__item']}>
+            <a href={I18N.get(item.url, pack)} className={['header-item__link'].concat(
+              item.active ? ['header-item__link--active'] : []).join(' ')}>
+              {I18N.get(item.resource, pack)}
+            </a>            
           </div>)}
       </nav>
     );
