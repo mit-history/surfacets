@@ -1,4 +1,7 @@
+$fa-font-path: './vendor/font-awesome/fonts';
+
 @import './common/elements';
+@import './vendor/font-awesome/scss/font-awesome.scss';
 
 .app {
   height: 100%;

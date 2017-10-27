@@ -1,4 +1,5 @@
 @import '../common/colors';
+@import '../common/text';
 
 .results-bar {
   @include sf-border-radius(4px 4px 0 0);
@@ -32,6 +33,7 @@
     font-size: 1.25em;
     color: white;
     text-transform: uppercase;
+    font-weight: $sf-font-weight-normal;
   }
 
   &__arrow {
@@ -89,10 +91,5 @@
       border-top-color: $sf-alternate-color;
     }
   }
-  
-  
-
-  
-
   
 }

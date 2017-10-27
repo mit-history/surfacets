@@ -3,6 +3,14 @@
         "en": "Comédie-Française Registers Project",
         "fr": "Projet des registres de la Comédie-Française"
     },
+    "title-url": {
+        "en": "http://cfregisters.org/en/",
+        "fr": "http://cfregisters.org/fr/"
+    },
+    "logo": {
+        "en": "Comédie-Française Registers Project's logo",
+        "fr": "Logo du registres de la Comédie Française"
+    },
     "en": {
         "en": "English",
         "fr": "Anglais"

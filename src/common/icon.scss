@@ -1,0 +1,25 @@
+@import './colors';
+
+.icon {
+  @include sf-transition(color 0.2s linear);
+  
+  cursor: pointer;
+
+  &--default {
+    color: $sf-alternate-color;
+    
+    &:focus,
+    &:hover {
+      color: $sf-alternate-hover-color;
+    }
+  }
+
+  &--alternate {
+    color: $sf-text-color;
+    
+    &:focus,
+    &:hover {
+      color: $sf-text-disabled-color;
+    }
+  }
+}

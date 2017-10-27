@@ -26,7 +26,7 @@ class FacetsToolbar extends Component {
       <section className='facets-toolbar'>
         <FacetsToolbarSearch />
         <FacetsToolbarDomains domains={this.props.domains} />
-        <FacetsToolbarSort disabled='true' />
+        <FacetsToolbarSort />
       </section>
     );
   }

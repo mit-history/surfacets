@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './facet.filter.entry.css';
 import {connect} from 'react-redux';
 import {addFilter, removeFilter, refreshFilters} from './../filters/action';
-import {fetchResultsIfNeeded} from './../results/action';
+import {fetchResultsIfNeeded, resetResults} from './../results/action';
 
 const mapStateToProps = (state) => {
   return {
@@ -31,7 +31,8 @@ class FacetFilterEntry extends Component {
       this.props.dispatch(addFilter(this.props.payload, this.props.filter.id));
     }
     this.props.dispatch(refreshFilters());
-    this.props.dispatch(fetchResultsIfNeeded());
+    this.props.dispatch(resetResults());
+    this.props.dispatch(fetchResultsIfNeeded(0));
   }
 }
 

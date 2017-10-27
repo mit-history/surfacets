@@ -1,29 +1,76 @@
 @import '../common/colors';
 @import '../common/text';
 
-.results-record {
-    background-color: white;
-    padding: 0.25em;
+%base-detail-icon {
+    width: 7%;
+    vertical-align: text-bottom;
+    
+    &.fa {
+        font-size: 1.25em;     
+    }
+}
 
+.results-record {
     &__container {
         box-sizing: border-box;
         padding: 1em;
+        line-height: 2;
+        vertical-align: top;
         display: inline-block;
         width: calc(100% / 3);
         background-color: $sf-darker-background-color;
+    }
+
+    &__header {
+        background-color: white;
+        padding: 0.25em;
+        margin-bottom: 0.15em;
+        cursor: pointer;
+    }
+
+    &__body {
+        background-color: white;
+        padding: 0.25em;
+    }
+
+    &__summary {
+        background-color: white;
+        line-height: 1.4;
+        padding: 0.25em;
     }
 
     &__title {
         margin: 0;
     }
 
-    &__separator {
-        border-color: $sf-border-color;
+    &__download {
+        background-color: $sf-darker-background-color;
+        margin: 0.25em 0.5em 0.25em 0.25em;
+        padding: 0.5em;
     }
 
-    &__field {
+    &__show {
+        @extend %base-detail-icon;
+    }
+
+    &__calendar {
+        @extend %base-detail-icon;
+    }
+
+    &__toggle.fa {
+        font-size: 1.25em;
+        padding: 0.5em;
+    }
+
+    &__separator {
+        margin: 0 0.5em;
+        border: 0;
+        border-bottom: 1px solid $sf-border-color;
+    }
+
+    &__label {
         display: inline-block;
-        width: 25%;
+        width: 19%;
         box-sizing: border-box;
         text-align: left;
         padding-left: 0.5em;
@@ -32,18 +79,53 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;    
+        vertical-align: middle;
     }
 
-    &__colon {
+    &__receipts {
+        font-size: 0.75em;
+    }
+
+    &__symbol {
         display: inline-block;
-        width: 5%;
+        vertical-align: middle;
+        width: 6%;
         text-align: center;
         font-size: 0.875em;
         color: $sf-text-disabled-color;
     }
+
     &__value {
         display: inline-block;
-        width: 70%;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 75%;
+        text-align: left;
+        font-size: 0.875em;
+
+        &--actionable.results-record__value {
+            width: 61%;
+        }
+
+        &--summary.results-record__value {
+            box-sizing: border-box;
+            padding: 0 0.5em;
+            width: 50%;
+        }
+        &--secondary.results-record__value {
+            padding-bottom: 1em;
+            color: $sf-text-disabled-color;
+        }
+    }
+    &__number {
+        display: inline-block;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 21%;
         text-align: left;
         font-size: 0.875em;
     }

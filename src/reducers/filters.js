@@ -1,4 +1,8 @@
-import {REQUEST_FILTERS, RECEIVE_FILTERS, ADD_FILTER, REMOVE_FILTER} from './../filters/action';
+import {REQUEST_FILTERS, 
+  RECEIVE_FILTERS, 
+  ADD_FILTER, 
+  REMOVE_FILTER, 
+  CLEAR_FILTERS} from './../filters/action';
 
 const FILTERS = {
   'authors-facet': [
@@ -68,13 +72,18 @@ export const filterOn = (state = {}, action) => {
     case ADD_FILTER:
       obj = Object.assign({}, state);
       obj[action.payload] = action.value;
+      console.log(obj);
       break;
     case REMOVE_FILTER:
       obj = Object.assign({}, state);
       delete obj[action.payload];
       break;
+    case CLEAR_FILTERS:
+      obj = Object.assign({}, state);
+      Object.keys(obj).forEach(key => delete obj[key]);
+      break;
     default:
-      return state;
+      break;
   }
 
   return obj;

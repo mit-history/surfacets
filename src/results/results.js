@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import {fetchResultsIfNeeded} from './action';
 import './results.css';
 
-
 const mapStateToProps = (state) => {
   return {
     results: state.results
@@ -14,7 +13,7 @@ const mapStateToProps = (state) => {
 
 class Results extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchResultsIfNeeded());
+    this.props.dispatch(fetchResultsIfNeeded(0));
   }
 
   render() {

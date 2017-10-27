@@ -19,7 +19,7 @@ class ResultsBar extends Component {
   
   render() {
     let count = '-';
-    if(this.props.results.records) {
+    if(this.props.results.records && this.props.results.records[0]) {
       count = this.props.results.records[0].total;
     }
 

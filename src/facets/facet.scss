@@ -1,6 +1,7 @@
 @import './../common/colors';
 
 .facet {
+  position: relative;
   text-align: center;
   border: 1px solid $sf-border-color;
   height: 100%;
@@ -14,5 +15,28 @@
   
   &--empty.facet {
     border: 1px dashed $sf-border-color;
+
+    & .facet__reset,
+    & .facet__remove {
+      display: none;
+    }
+  }
+
+  &__reset {
+    display: inline-block;
+    padding: 1em;
+    position: absolute;
+    left: 0;
+  }
+
+  &__remove {
+    padding: 0.5em;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    
+    &.fa {
+      font-size: 0.75em;
+    }
   }
 }

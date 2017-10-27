@@ -4,6 +4,7 @@ export const REQUEST_FILTERS = 'REQUEST_FILTERS';
 export const RECEIVE_FILTERS = 'LIST_FILTERS';
 export const ADD_FILTER = 'ADD_FILTER';
 export const REMOVE_FILTER = 'REMOVE_FILTER';
+export const CLEAR_FILTERS = 'CLEAR_FILTERS';
 
 function requestFilters(filter) {
   return {
@@ -57,7 +58,6 @@ function shouldFetchFilters(state, filter) {
   return fetch;
 }
 
-
 export function fetchFiltersIfNeeded(filter) {
   return (dispatch, getState) => {
     if (shouldFetchFilters(getState(), filter)) {
@@ -84,5 +84,11 @@ export function removeFilter(payload) {
   return {
     type: REMOVE_FILTER,
     payload: payload
+  }
+}
+
+export function clearFilters() {
+  return {
+    type: CLEAR_FILTERS
   }
 }

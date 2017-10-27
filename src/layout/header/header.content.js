@@ -15,7 +15,9 @@ class HeaderContent extends Component {
     return (
       <div className='header'>
         <div className='header__logo'>
-          <img alt='Logo registres de la Comédie Française' src={logo}/>
+          <a href={I18N.get('title-url', pack)} title={I18N.get('title', pack)}>
+            <img alt={I18N.get('logo', pack)} src={logo}/>
+          </a>
         </div>
         <h1 className='header__title'>
             {I18N.get('title', pack)}

@@ -11,9 +11,17 @@
         "en": "Date",
         "fr": "Date"
     },
+    "record-date-format": {
+        "en": "{0}, {1} {2} {3}",
+        "fr": "{0} {1} {2} {3}"
+    },
     "record-title1": {
         "en": "Play 1",
         "fr": "Pièce 1"
+    },
+    "record-title2": {
+        "en": "Play 2",
+        "fr": "Pièce 2"
     },
     "record-author": {
         "en": "Author",
@@ -22,5 +30,37 @@
     "record-genre": {
         "en": "Genre",
         "fr": "Genre"
+    },
+    "record-theater": {
+        "en": "Theater",
+        "fr": "Théâtre"
+    },
+    "record-lodge-1": {
+        "en": "1st lodges",
+        "fr": "1ère loges"
+    },
+    "record-lodge-2": {
+        "en": "2nd lodges",
+        "fr": "2ième loges"
+    },
+    "record-lodge-3": {
+        "en": "3rd lodges",
+        "fr": "3ième loges"
+    },    
+    "record-ground": {
+        "en": "On the ground",
+        "fr": "Parterre"
+    },
+    "record-receipts": {
+        "en": "Receipts",
+        "fr": "Recettes"
+    },
+    "record-pounds": {
+        "en": "{0} Pounds",
+        "fr": "{0} Livres"
+    },
+    "record-audiences": {
+        "en": "{0} audiences",
+        "fr": "{0} spectateurs"
     }
 }

@@ -1,4 +1,7 @@
+@import '../common/colors';
+
 .results-content {
     height: calc(100% - 8em);
     overflow-y: auto;
+    background-color: $sf-darker-background-color;
 }

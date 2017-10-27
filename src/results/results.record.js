@@ -1,38 +1,44 @@
 import React, { Component } from 'react';
 import I18N from './../common/i18n';
 import pack from './results.i18n.json';
+import Icon from '../common/icon';
+import ResultsRecordDetails from './results.record.details';
+import ResultsRecordSummary from './results.record.summary';
 import './results.record.css';
 
 class ResultsRecord extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {opened: this.props.opened};
+    this.handleToggleClick = this.handleToggleClick.bind(this);    
+    this.handleDownloadClick = this.handleDownloadClick.bind(this);    
+  }
+
   render() {
     return (
       <div className='results-record__container'>
-        <div className='results-record'>
+        <div className='results-record__header' onClick={this.handleToggleClick}>
           <h5 className='results-record__title'>
+            <Icon iconClass={'fa-download results-record__download'} alternate={true} onClick={this.handleDownloadClick}/>
             <span>{I18N.format('record-title', pack, this.props.record.entry)}</span>
-            <span style={{'float': 'right'}}>{this.props.record.number} / {this.props.record.total}</span>
+            <span style={{'float': 'right'}}>
+              {this.props.record.number} / {this.props.record.total}
+              <Icon alternate={true} iconClass={this.state.opened ? 'fa-chevron-up results-record__toggle' : 'fa-chevron-down results-record__toggle'}/>
+            </span>
           </h5>
-          <hr className='results-record__separator'/>
-          <div>
-            <span className='results-record__field'>{I18N.get('record-date', pack)}</span>
-            <span className='results-record__colon'> : </span>
-            <span className='results-record__value'>{this.props.record.date}</span>
-          </div>
-          {this.props.record.pieces.map((piece, index) => 
-            (<div key={index}>
-              <hr className='results-record__separator'/>
-              {Object.keys(piece).map(key => 
-                <div key={key}>
-                  <span className='results-record__field'>{I18N.get('record-' + key, pack)}</span>
-                  <span className='results-record__colon'> : </span>
-                  <span className='results-record__value'>{piece[key]}</span>
-                </div>
-              )}
-            </div>)
-          )}
         </div>
+        {this.state.opened ? <ResultsRecordDetails record={this.props.record}/> : <ResultsRecordSummary record={this.props.record}/>}        
       </div>
     );
+  }
+
+  handleToggleClick() {
+    this.setState({opened: !this.state.opened});
+  }
+
+  handleDownloadClick(event) {
+    console.log(event);
   }
 }
 

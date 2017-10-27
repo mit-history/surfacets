@@ -3,11 +3,13 @@
 $sf-light-background-color: #f4f4f4;
 $sf-dark-background-color: #e5e5e5;
 $sf-darker-background-color: #ebebeb;
+$sf-darkest-background-color: #999;
 $sf-main-color: #9acdd0;
 $sf-alternate-color: #369AB2;
 $sf-main-hover-color: darken($sf-main-color, 10%);
 $sf-alternate-hover-color: darken($sf-alternate-color, 10%);
 $sf-text-color: #333;
+$sf-text-hover-color: darken($sf-text-color, 10%);
 $sf-text-disabled-color: #a5a5a5;
 $sf-text-inverted-color: #fff;
 $sf-disabled-color: $sf-dark-background-color;

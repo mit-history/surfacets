@@ -1,4 +1,5 @@
 @import './../common/colors';
+@import './../common/text';
 
 .facets-toolbar {
   display: table;
@@ -29,6 +30,22 @@
   background-color: $sf-light-background-color;
 }
 
+%base-sort-option {
+  font-size: 0.75em;
+  width: 50%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 0.25em 0;
+  display: inline-block;
+  vertical-align: middle;
+  border: 0;
+
+  &:hover {
+    background-color: $sf-dark-background-color;
+    color: $sf-darkest-background-color;
+  }  
+}
+
 .facets-toolbar-sort {
   display: table-cell;
   text-align: center;
@@ -37,7 +54,9 @@
 
   &--block {
     margin: 1em;
-    padding: 0.5em 0 0.25em 0;
+    border: 0;
+    color: $sf-text-inverted-color;  
+    background-color: $sf-darkest-background-color;    
   }
   
   &--disabled {
@@ -46,16 +65,28 @@
     }
   }
 
+  &--active {
+    background-color: $sf-dark-background-color;
+    color: $sf-darkest-background-color;
+
+    &:hover,
+    &:focus {
+      background-color: $sf-dark-background-color;
+      color: $sf-darkest-background-color;
+    }
+  }
+
   &__title {
     margin: 0;
+    padding: 0.5em 0;
+    font-weight: $sf-font-weight-normal;
   }
 
   &__alphabetical {
-    font-size: 0.75em;
-    padding-right: 1em;
+    @extend %base-sort-option;
   }
 
   &__receipts {
-    font-size: 0.75em;
+    @extend %base-sort-option;
   }
 }
