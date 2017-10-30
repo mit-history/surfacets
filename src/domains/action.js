@@ -3,7 +3,6 @@ export const ACTIVATE_DOMAINS = 'ACTIVATE_DOMAINS';
 export const RESET_DOMAINS = 'RESET_DOMAINS';
 
 export function activateDomain(domain, index) {
-  console.log(`ACTIVATE:${index}`);
   return {
     type: ACTIVATE_DOMAIN, 
     id: domain, 

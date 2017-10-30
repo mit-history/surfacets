@@ -22,10 +22,16 @@
     }
 
     &__header {
+        @include sf-transition(background-color 0.2s linear);
+
         background-color: white;
         padding: 0.25em;
         margin-bottom: 0.15em;
         cursor: pointer;
+
+        &:hover {
+            background-color: $sf-darkest-background-color;
+        }
     }
 
     &__body {

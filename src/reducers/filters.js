@@ -2,7 +2,7 @@ import {REQUEST_FILTERS,
   RECEIVE_FILTERS, 
   ADD_FILTER, 
   REMOVE_FILTER, 
-  CLEAR_FILTERS} from './../filters/action';
+  CLEAR_FILTERS, SORT_FILTERS} from './../filters/action';
 
 const FILTERS = {
   'authors-facet': [
@@ -31,14 +31,14 @@ const FILTERS = {
   'theaters-facet': [
     {id: 'theater-1-filter', resource: 'theater-1-filter', payload: 'theater1'}
   ]
-}
+};
 
 export const filtersDefinition = (state = FILTERS, action) => {
   switch (action.type) {
     default:
       return state
   }
-}
+};
 
 const filters = (state = {data: []}, action) => {
   switch (action.type) {
@@ -51,7 +51,7 @@ const filters = (state = {data: []}, action) => {
     default:
       return state;
   }
-}
+};
 
 export const filtersByPayload = (state = {}, action) => {
   switch(action.type) {
@@ -63,7 +63,7 @@ export const filtersByPayload = (state = {}, action) => {
     default:
       return state;
   }
-}
+};
 
 export const filterOn = (state = {}, action) => {
   let obj = state;
@@ -87,4 +87,21 @@ export const filterOn = (state = {}, action) => {
   }
 
   return obj;
-}
+};
+
+export const sort = (state = {alphabetical: true, ascending: true}, action) => {
+  let obj = state;
+  
+  switch(action.type) {
+    case SORT_FILTERS:
+      obj = Object.assign({}, state, {
+        alphabetical: action.alphabetical,
+        ascending: action.ascending
+      });
+      break;
+    default:
+      break;
+  }
+
+  return obj;
+};

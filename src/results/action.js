@@ -37,8 +37,6 @@ function receiveResults(content, page) {
   let records = content.replace(/\r?\n|\r/g, '').split('</style>');
   records.splice(-1, 1);
   records = records.map(record => createRecord(record));
-  // TODO - parse content and create a DTO object from the DOM received
-  // TODO - handle paging
   return {
     type: RECEIVE_RESULTS,
     records: records,

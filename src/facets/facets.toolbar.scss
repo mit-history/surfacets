@@ -34,11 +34,16 @@
   font-size: 0.75em;
   width: 50%;
   box-sizing: border-box;
-  text-align: center;
+  text-align: right;
   padding: 0.25em 0;
   display: inline-block;
   vertical-align: middle;
+  cursor: pointer;
   border: 0;
+
+  > span {
+    padding-right: 1em;
+  }
 
   &:hover {
     background-color: $sf-dark-background-color;
@@ -62,6 +67,11 @@
   &--disabled {
     .facets-toolbar-sort--block {
       @extend %sf-widget-disabled-colors;
+    }
+
+    .facets-toolbar-sort__alphabetical,
+    .facets-toolbar-sort__receipts {
+      cursor: default;
     }
   }
 

@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import './icon.css';
 
 const DEFAULT_ICON = 'icon--default';
+const DISABLED_ICON = 'icon--disabled';
 const ALTERNATE_ICON = 'icon--alternate';
 
 class Icon extends Component {  
   constructor(props) {
     super(props);
-    this.state = {baseClass: this.props.alternate ? ALTERNATE_ICON : DEFAULT_ICON};
+    this.state = {
+      baseClass: this.props.disabled ? DISABLED_ICON : (this.props.alternate ? ALTERNATE_ICON : DEFAULT_ICON)
+    };
   }
   
   render() {

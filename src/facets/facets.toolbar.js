@@ -9,6 +9,7 @@ import './facets.toolbar.css';
 const mapStateToProps = (state) => {
   return {
     domains: state.domains,
+    activeDomain: state.domains.filter(domain => domain.active).length > 0
   };
 }
 
@@ -26,7 +27,7 @@ class FacetsToolbar extends Component {
       <section className='facets-toolbar'>
         <FacetsToolbarSearch />
         <FacetsToolbarDomains domains={this.props.domains} />
-        <FacetsToolbarSort />
+        <FacetsToolbarSort disabled={!this.props.activeDomain}/>
       </section>
     );
   }

@@ -34,7 +34,9 @@ class ResultsRecord extends Component {
   }
 
   handleToggleClick() {
-    this.setState({opened: !this.state.opened});
+    this.setState((prevState, props) => ({
+      opened: !prevState.opened
+    }));  
   }
 
   handleDownloadClick(event) {

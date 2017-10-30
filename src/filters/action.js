@@ -5,6 +5,7 @@ export const RECEIVE_FILTERS = 'LIST_FILTERS';
 export const ADD_FILTER = 'ADD_FILTER';
 export const REMOVE_FILTER = 'REMOVE_FILTER';
 export const CLEAR_FILTERS = 'CLEAR_FILTERS';
+export const SORT_FILTERS = 'SORT_FILTERS';
 
 function requestFilters(filter) {
   return {
@@ -90,5 +91,13 @@ export function removeFilter(payload) {
 export function clearFilters() {
   return {
     type: CLEAR_FILTERS
+  }
+}
+
+export function sortFilters(alphabetical, ascending) {
+  return {
+    type: SORT_FILTERS,
+    alphabetical: alphabetical,
+    ascending: ascending
   }
 }
