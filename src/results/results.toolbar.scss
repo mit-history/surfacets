@@ -1,0 +1,29 @@
+@import './../common/colors';
+
+.results-toolbar {
+  text-align: center;
+  background-color: $sf-darker-background-color;  
+
+  &__icon {
+    stroke: 0;
+    cursor: pointer;
+    padding: 1em 0.5em;
+    fill: $sf-text-disabled-color;
+    
+    &--active.results-toolbar__icon {
+      fill: $sf-alternate-color;
+
+      .results-toolbar-icon__frame {
+        stroke: $sf-alternate-color;
+      }
+    }
+  }
+}
+
+.results-toolbar-icon{
+  &__frame {
+    stroke-width: 2px;
+    stroke: $sf-text-disabled-color;
+    fill: white;
+  }
+}

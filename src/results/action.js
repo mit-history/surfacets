@@ -3,6 +3,8 @@ export const HIDE_RESULTS = 'HIDE_RESULTS';
 export const REQUEST_RESULTS = 'REQUEST_RESULTS';
 export const RECEIVE_RESULTS = 'RECEIVE_RESULTS';
 export const RESET_RESULTS = 'RESET_RESULTS';
+export const CHANGE_VIEW_MODE = 'CHANGE_VIEW_MODE';
+export const SELECT_RECORD = 'SELECT_RECORD';
 
 const RECORD_PER_PAGE = 20;
 const RECORD_LINK = /<a href="([A-z0-9:\/_?\.]+)" class="image-popup-vertical-fit" title="&lt;a href=&#x27;([A-z0-9:\/_?\.]+)&#x27/;
@@ -16,6 +18,10 @@ const RECORD_RECEIPT = /<dt>Recettes<\/dt>\s*<dd>\s*<div class="daily total">L\.
 const PIECE_TITLE = "title";
 const PIECE_AUTHOR = "author";
 const PIECE_GENRE = "genre";
+
+export const VIEW_MODE_SUMMARY = 'summary';
+export const VIEW_MODE_SELECTION = 'selection';
+export const VIEW_MODE_DETAILED = 'detailed';
 
 const RECEIPT_SECTIONS = {
   "Theatre": "theater",
@@ -136,6 +142,8 @@ function shouldFetchResults(state, page, dispatch) {
   if (!results) {
     if(page > 0 && state.results[page - 1].isFetching) {
       fetch = false;
+    } else if(page > 0 && page * RECORD_PER_PAGE > state.results.records[0].total) {
+      fetch = false;
     }
   } else if(results && results.isFetching) {
     fetch = false;
@@ -171,5 +179,19 @@ export function resetResults() {
     type: RESET_RESULTS,
     page: 0,
     records: []
+  }
+}
+
+export function changeViewMode(mode) {
+  return {
+    type: CHANGE_VIEW_MODE,
+    mode: mode
+  }
+}
+
+export function selectRecord(record) {
+  return {
+    type: SELECT_RECORD,
+    record: record
   }
 }

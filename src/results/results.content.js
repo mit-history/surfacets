@@ -3,13 +3,14 @@ import {connect} from 'react-redux';
 import './results.content.css';
 import ResultsRecord from './results.record';
 import InfiniteScroll from 'react-infinite-scroller';
-import {fetchResultsIfNeeded} from './action';
+import {fetchResultsIfNeeded, VIEW_MODE_DETAILED, VIEW_MODE_SELECTION} from './action';
 
 const mapStateToProps = (state) => {
   return {
     records: state.results.records,
     page: state.results.page,
-    hasMore: state.results.opened
+    hasMore: state.results.opened,
+    viewMode: state.results.viewMode
   };
 }
 
@@ -21,8 +22,9 @@ class ResultsContent extends Component {
   }
 
   render() {
+    const classes = ['results-content'].concat(this.props.viewMode === VIEW_MODE_SELECTION ? ['results-content--split'] : []).join(' ');
     return (
-      <section className='results-content'>
+      <section className={classes}>        
         <InfiniteScroll 
           pageStart={this.props.page} 
           hasMore={this.props.hasMore} 
@@ -31,14 +33,15 @@ class ResultsContent extends Component {
           threshold={500}
           useWindow={false}>
           {this.props.records ? 
-            this.props.records.map(record => <ResultsRecord key={record.number} record={record}/>) : ''}
+            this.props.records.map(record => <ResultsRecord key={record.number} record={record} 
+              opened={this.props.viewMode === VIEW_MODE_DETAILED} 
+              selectable={this.props.viewMode === VIEW_MODE_SELECTION}/>) : ''}
         </InfiniteScroll>
       </section>
     );
   }
 
   handleLoadMore(page) {
-    console.log(`PAGE:${this.props.page}:NEXT:${this.props.page + 1}`);
     this.props.dispatch(fetchResultsIfNeeded(this.props.page + 1));
   }
 }

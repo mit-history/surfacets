@@ -1,3 +1,21 @@
 .results {
     height: 100%;
+    position: relative;
+    
+    &__loading {
+        position: absolute;
+        text-align: center;
+        font-size: 5em;
+        background-color: white;
+        opacity: 0.5;
+        top: 0.66em;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        .fa {
+            position: absolute;
+            top: 33%;
+        }
+    }
 }

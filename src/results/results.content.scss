@@ -4,4 +4,9 @@
     height: calc(100% - 8em);
     overflow-y: auto;
     background-color: $sf-darker-background-color;
+
+    &--split {
+        width: calc(100% * (2 / 3));
+        display: inline-block;
+    }
 }

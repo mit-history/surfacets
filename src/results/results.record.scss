@@ -12,13 +12,39 @@
 
 .results-record {
     &__container {
+        height: 100%;
         box-sizing: border-box;
-        padding: 1em;
+        padding: 0 1em 1.5em 1em;        
         line-height: 2;
         vertical-align: top;
         display: inline-block;
-        width: calc(100% / 3);
         background-color: $sf-darker-background-color;
+    }
+
+    &--static {
+        width: calc(100% / 3);
+    }
+
+    &--selectable {        
+        width: calc(100% / 2);        
+        cursor: pointer;
+
+        .results-record__box {
+            @include sf-transition(box-shadow 0.2s linear);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+        }
+
+        &:hover .results-record__box {
+            box-shadow: 0 0 2px 4px rgba(54,154,178,0.5);
+        }
+
+        .results-record__header:hover {
+            background-color: white;
+        }
+    }
+
+    &__box {
+        margin-top: 4px;
     }
 
     &__header {
@@ -30,7 +56,7 @@
         cursor: pointer;
 
         &:hover {
-            background-color: $sf-darkest-background-color;
+            background-color: rgba(54,154,178,0.3);
         }
     }
 

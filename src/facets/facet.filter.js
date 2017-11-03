@@ -7,40 +7,9 @@ import './facet.filter.css';
 import FacetFilterEntry from './facet.filter.entry';
 import Icon from './../common/icon';
 
-const sortAlphabeticalAscending = (a, b) => {
-  return a.name.localeCompare(b.name);
-}
-
-const sortNumericalAscending = (a, b) => {
-  return a.count - b.count;
-}
-
-const sortAlphabeticalDescending = (a, b) => {
-  return b.name.localeCompare(a.name);
-}
-
-const sortNumericalDescending = (a, b) => {
-  return b.count - a.count;
-}
-
 const mapStateToProps = (state) => {
-  let sortFunction;
-  if (state.sort.alphabetical) {
-    if(state.sort.ascending) {
-      sortFunction = sortAlphabeticalAscending;
-    } else {
-      sortFunction = sortAlphabeticalDescending;
-    }
-  } else {
-    if(state.sort.ascending) {
-      sortFunction = sortNumericalAscending;
-    } else {
-      sortFunction = sortNumericalDescending;
-    }
-  }
-
   return {
-    sortFunction: sortFunction, 
+    sortFunction: state.sort.sortFunction, 
     filtersByPayload: state.filtersByPayload
   };
 }
@@ -48,7 +17,6 @@ const mapStateToProps = (state) => {
 class FacetFilter extends Component {
   componentDidMount() {
     const { dispatch, filter } = this.props;
-    console.log(this.props);
     this.handleChange = this.handleChange.bind(this);
     this.state = {search: ''};
     dispatch(fetchFiltersIfNeeded(filter.payload));

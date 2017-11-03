@@ -33,6 +33,41 @@ const FILTERS = {
   ]
 };
 
+const sortAlphabeticalAscending = (a, b) => {
+  return a.name.localeCompare(b.name);
+}
+
+const sortNumericalAscending = (a, b) => {
+  return a.count - b.count;
+}
+
+const sortAlphabeticalDescending = (a, b) => {
+  return b.name.localeCompare(a.name);
+}
+
+const sortNumericalDescending = (a, b) => {
+  return b.count - a.count;
+}
+
+function getSortFunction(action) {
+  let sortFunction;
+
+  if (action.alphabetical) {
+    if(action.ascending) {
+      sortFunction = sortAlphabeticalAscending;
+    } else {
+      sortFunction = sortAlphabeticalDescending;
+    }
+  } else {
+    if(action.ascending) {
+      sortFunction = sortNumericalAscending;
+    } else {
+      sortFunction = sortNumericalDescending;
+    }
+  }
+  return sortFunction;
+}
+
 export const filtersDefinition = (state = FILTERS, action) => {
   switch (action.type) {
     default:
@@ -72,7 +107,6 @@ export const filterOn = (state = {}, action) => {
     case ADD_FILTER:
       obj = Object.assign({}, state);
       obj[action.payload] = action.value;
-      console.log(obj);
       break;
     case REMOVE_FILTER:
       obj = Object.assign({}, state);
@@ -89,14 +123,19 @@ export const filterOn = (state = {}, action) => {
   return obj;
 };
 
-export const sort = (state = {alphabetical: true, ascending: true}, action) => {
+export const sort = (state = {
+    alphabetical: true, 
+    ascending: true,
+    sortFunction: sortAlphabeticalAscending
+  }, action) => {
   let obj = state;
   
   switch(action.type) {
     case SORT_FILTERS:
       obj = Object.assign({}, state, {
         alphabetical: action.alphabetical,
-        ascending: action.ascending
+        ascending: action.ascending,
+        sortFunction: getSortFunction(action)
       });
       break;
     default:

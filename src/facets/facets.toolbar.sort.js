@@ -20,11 +20,9 @@ class FacetsToolbarSort extends Component {
     this.state = this.getState(props);
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log('componentWillReceiveProps');
-    console.log(nextProps);
-    this.setState(this.getState(nextProps));    
-  }
+    componentWillReceiveProps(nextProps) {
+      this.setState(this.getState(nextProps));    
+    }
 
   getState(props) {
     return {
