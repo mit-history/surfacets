@@ -1,44 +1,49 @@
 import React, { Component } from 'react';
 import Facet from './facet';
 import './facets.content.css';
+import FacetUtils from './facet.utils';
 import {activateDomain} from '../domains/action';
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
   return {
-    sortedDomains: state.domains.slice().sort((a, b) => {
-      if(a.index && b.index) {
-        return a.index - b.index;
-      } else if(!b.index) {
-        return -1;
-      } else {
-        return 1;
-      }
-    })
+    sortedDomains: FacetUtils.sortDomains(state.domains)
   };
 }
+
+const FACETS_CONTENT_ID = 'active-facets';
 
 class FacetsContent extends Component {
   constructor(props) {
     super(props);
     this.allowDrop = this.allowDrop.bind(this);
     this.drop = this.drop.bind(this);
+    this.leave = this.leave.bind(this);
   }
 
   allowDrop(event) {
     event.preventDefault();
   }
 
+  leave(event) {
+    event.preventDefault();
+  }
+
   drop(event) {
     event.preventDefault();
+    const facets = document.getElementById(FACETS_CONTENT_ID);
+    const clientRect = facets.getBoundingClientRect();
+    const index = Math.floor((event.clientX / (clientRect.width - clientRect.x)) * 6);
     let domain = event.dataTransfer.getData('text');
-    this.props.dispatch(activateDomain(domain, 
-      this.props.sortedDomains.findIndex(domain => !domain.active) + 1));
+    let fromIndex = parseInt(event.dataTransfer.getData('index'), 10);
+    this.props.dispatch(activateDomain(domain, index + 1, fromIndex));
   }
 
   render() {
     return (
-      <section onDragOver={this.allowDrop} onDrop={this.drop} 
+      <section id={FACETS_CONTENT_ID} onDragOver={this.allowDrop} 
+        onDragLeave={this.leave}
+        onDrop={this.drop} 
         className='facets-content'>
         {this.props.sortedDomains.map(domain => 
           <Facet key={domain.id} domain={domain} empty={!domain.active} />)}

@@ -18,10 +18,17 @@ class ResultsRecordDetails extends Component {
               I18N.get('month-' + this.props.record.date.month, datePack),
               this.props.record.date.year)}
           </span>
-          <a href={this.props.record.entryLink} target='_blank'>
+          {this.props.record.entryLink ? <a href={this.props.record.entryLink} target='_blank'>
             <Icon iconClass={'fa-book results-record__show'} alternate={true}/>
+          </a>: null}          
+          <a href={I18N.get('record-analytics', pack)} target='_blank'>
+            <Icon iconClass={'fa-calendar results-record__calendar'} alternate={true}/>
           </a>
-          <Icon iconClass={'fa-calendar results-record__calendar'} alternate={true}/>
+        </div>
+        <div>
+          <span className='results-record__label'>{I18N.get('record-theater', pack)}</span>
+          <span className='results-record__symbol'> : </span>
+          <span className='results-record__value'>{this.props.record.theater ? this.props.record.theater : I18N.get('record-not-available', pack)}</span>
         </div>
         {this.props.record.pieces.map((piece, index) => (
           <div key={index}>

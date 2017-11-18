@@ -3,19 +3,13 @@ import I18N from './../common/i18n';
 import './facet.domain.css';
 import pack from './facets.i18n.json';
 import {activateDomain} from '../domains/action';
+import FacetUtils from './facet.utils';
 import {connect} from 'react-redux';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => {  
+  
   return {
-    sortedDomains: state.domains.slice().sort((a, b) => {
-      if(a.index && b.index) {
-        return a.index - b.index;
-      } else if(!b.index) {
-        return -1;
-      } else {
-        return 1;
-      }
-    })
+    sortedDomains: FacetUtils.sortDomains(state.domains)
   };
 }
 
@@ -29,8 +23,9 @@ class FacetDomain extends Component {
 
   render() {
     return (
-      <div draggable={!this.props.domain.active}
-        id={this.props.domain.resource} 
+      <div draggable={true}
+        id={this.props.domain.resource}
+        data={this.props.domain.index}
         onDragStart={this.handleDragStart}
         onClick={this.handleClick} 
         className={['facet-domain'].concat(
@@ -45,12 +40,15 @@ class FacetDomain extends Component {
 
   handleDragStart(event) {
     event.dataTransfer.setData('text', event.target.id);
+    if(event.nativeEvent && event.nativeEvent.target) {
+      event.dataTransfer.setData('index', event.nativeEvent.target.getAttribute('data'));
+    }
   }
 
   handleClick(event) {
     if(!this.props.empty) {
       this.props.dispatch(activateDomain(this.state.domain.resource, 
-        this.props.sortedDomains.findIndex(domain => !domain.active) + 1));  
+        this.props.domain.index ? undefined : this.props.sortedDomains.findIndex(domain => !domain.active) + 1), NaN);  
     }
   }
 }

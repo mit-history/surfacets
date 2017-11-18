@@ -11,6 +11,8 @@ const RECORD_LINK = /<a href="([A-z0-9:\/_?\.]+)" class="image-popup-vertical-fi
 const RECORD_NUMBER = /<div class="results_num">(\d*)\s*\/\s*(\d*)<\/div>/;
 const RECORD_ENTRY = /<div class="register_num">([\d\s\/]*)<\/div>/;
 const RECORD_DATE = /div class="date">.*<\/a>\s*(\d{2})\/(\d{2})\/(\d{4})\s{1}\((\w+)\)+.*\s+<\/dd>\s*<\/div>/;
+const RECORD_DATE_NOLINK = /<div class="date">\s*<dt>[A-zÀ-ÿ\s\d]+<\/dt>\s*<dd>\s*(\d{2})\/(\d{2})\/(\d{4})\s{1}\((\w+)\)+.*\s+<\/dd>\s*<\/div>/;
+const RECORD_THEATER = /<div class="theater">\s*<dt>[A-zÀ-ÿ\s\d]+<\/dt>\s*<dd>([A-z\u00C0-\u017F\s\(\)\-,\d&#;:\/\.]+)<\/dd>\s*<\/div>/;
 const RECORD_PIECE = /<div class="play">\s*<dt>[A-zÀ-ÿ\s\d]+<\/dt>\s*<dd>([A-z\u00C0-\u017F\s\(\)\-,\d&#;:\/\.]+)<\/dd>\s+<dt>[A-zÀ-ÿ\s]+<\/dt>\s*<dd>([A-z\u00C0-\u017F\s\(\)\-,\d&#;:\/\.]+)<\/dd>\s*<dt>[A-zÀ-ÿ\s\d]+<\/dt>\s*<dd>([A-z\u00C0-\u017F\s\(\)\-,\d&#;:\/\.]+)<\/dd>/g;
 const RECORD_RECEIPT_ENTRY = /<dt>\s*<div class="quantity">([0-9]+)<\/div>([A-z\s]+)<\/dt>\s*<dd>\s*<div class="price">([A-z0-9\.,\s]+)<\/div>\s*<div class="total">([A-z0-9\.,\s]+)<\/div>\s*<\/dd>/g;
 const RECORD_RECEIPT = /<dt>Recettes<\/dt>\s*<dd>\s*<div class="daily total">L\. ([0-9,]+)<\/div>\s*<\/dd>/;
@@ -81,8 +83,16 @@ function createRecord(content) {
     // record entry
     record.entry = RECORD_ENTRY.exec(content)[1];
     RECORD_ENTRY.lastIndex = 0;  
+    const recordTheater = RECORD_THEATER.exec(content);
+    if(recordTheater) {
+      record.theater = recordTheater[1].trim();
+    }
+    RECORD_THEATER.lastIndex = 0;
     // record date
-    const date = RECORD_DATE.exec(content);
+    let date = RECORD_DATE.exec(content);
+    if(!date) {
+      date = RECORD_DATE_NOLINK.exec(content);
+    }
     record.date = {
       dayName: date[4],
       day: date[1],
@@ -90,10 +100,13 @@ function createRecord(content) {
       year: date[3]
     };
     RECORD_DATE.lastIndex = 0;
+    RECORD_DATE_NOLINK.lastIndex = 0;
     // record links
     const recordLink = RECORD_LINK.exec(content);
-    record.entryLink = recordLink[1];
-    record.bookLink = recordLink[2];
+    if(recordLink) {
+      record.entryLink = recordLink[1];
+      record.bookLink = recordLink[2];
+    }
     RECORD_LINK.lastIndex = 0;
     // record pieces
     record.pieces = [];

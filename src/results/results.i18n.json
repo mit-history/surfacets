@@ -33,7 +33,11 @@
     },
     "record-theater": {
         "en": "Theater",
-        "fr": "Théâtre"
+        "fr": "Salle"
+    },
+    "record-not-available": {
+        "en": "N/A",
+        "fr": "Non disponible"
     },
     "record-lodge-1": {
         "en": "1st lodges",
@@ -62,5 +66,9 @@
     "record-audiences": {
         "en": "{0} audiences",
         "fr": "{0} spectateurs"
+    },
+    "record-analytics": {
+        "en": "http://cfregisters.org/app",
+        "fr": "http://cfregisters.org/fr/app"
     }
 }

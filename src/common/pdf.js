@@ -16,8 +16,10 @@ class PDFGenerator {
       parseInt(record.date.day, 10),
       I18N.get('month-' + record.date.month, datePack),
       record.date.year), 1.2);
-    this.addLine(0.3, 8, 1.4, 0.01);
-    let y = 1.8;        
+
+    this.addTextLine(I18N.get('record-theater', pack), record.theater ? record.theater : I18N.get('record-not-available', pack), 1.7);
+    this.addLine(0.3, 8, 1.9, 0.01);
+    let y = 2.2;        
     record.pieces.forEach(piece => {
       Object.keys(piece).forEach(key => {
         this.addTextLine(I18N.get('record-' + key, pack), piece[key], y);

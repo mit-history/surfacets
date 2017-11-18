@@ -29,7 +29,7 @@ const FILTERS = {
     {id: 'receipt-2-filter', resource: 'receipt-2-filter', payload: 'parterre_receipts'}
   ],
   'theaters-facet': [
-    {id: 'theater-1-filter', resource: 'theater-1-filter', payload: 'theater1'}
+    {id: 'theater-1-filter', resource: 'theater-1-filter', payload: 'theater'}
   ]
 };
 

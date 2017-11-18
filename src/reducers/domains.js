@@ -9,17 +9,42 @@ const DOMAINS = [
   {id: 'theaters-facet', resource: 'theaters-facet'}
 ];
 
+function activateDomain(currentDomain, action) {
+  let domain = currentDomain;
+  if(currentDomain.id !== action.id) {
+    if(domain.index === action.index) {
+      if(!isNaN(action.fromIndex)) {
+        domain = Object.assign({}, currentDomain, {
+          index: action.fromIndex
+        });
+      } else {
+        domain = Object.assign({}, currentDomain, {
+          index: NaN,
+          active: false
+        });
+      }
+    } 
+  } else {
+    if(!isNaN(action.fromIndex) || action.fromIndex !== action.index) {
+      return Object.assign({}, currentDomain, {
+        active: true,
+        index: action.index
+      });
+    } else if(isNaN(action.index)) {
+      return Object.assign({}, currentDomain, {
+        active: false,
+        index: NaN
+      });
+    }
+  }
+
+  return domain;  
+}
+
 const domain = (state = {}, action) => {
   switch (action.type) {
     case ACTIVATE_DOMAIN:
-      if (state.id !== action.id) {
-        return state;
-      }
-
-      return Object.assign({}, state, {
-        active: !state.active,
-        index: !state.active ? action.index : undefined
-      });
+      return activateDomain(state, action);
     default:
       return state;
   }

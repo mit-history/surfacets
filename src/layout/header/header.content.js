@@ -28,7 +28,7 @@ class HeaderContent extends Component {
         </h1>
         <div className='header__search'>
           <form action={'http://cfregisters.org/' + I18N.lang() + '/search/results'}>
-            <input id={SEARCH_FIELD_ID} type='text' tabindex='0' name='q' placeholder={I18N.get('placeholder', pack)}/>
+            <input id={SEARCH_FIELD_ID} type='text' tabIndex='0' name='q' placeholder={I18N.get('placeholder', pack)}/>
             <Icon iconClass={'fa-search'} alternate={true}/>            
           </form>
         </div><div className='header__language'>

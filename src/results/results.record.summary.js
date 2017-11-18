@@ -26,7 +26,7 @@ class ResultsRecordSummary extends Component {
             this.props.record.date.year)}
         </span>
         <span className='results-record__value results-record__value--summary' title={this.state.title1}>{this.state.title1}</span>
-        <span className='results-record__value results-record__value--summary results-record__value--secondary'></span>
+        <span className='results-record__value results-record__value--summary results-record__value--secondary'>{this.props.record.theater ? this.props.record.theater : I18N.get('record-not-available', pack)}</span>
         <span className='results-record__value results-record__value--summary results-record__value--secondary' title={this.state.author1}>{this.state.author1}</span>
         <span className='results-record__value results-record__value--summary'>{I18N.format('record-pounds', pack, this.props.record.receipts)}</span>
         <span className='results-record__value results-record__value--summary' title={this.state.title2}>{this.state.title2}</span>
