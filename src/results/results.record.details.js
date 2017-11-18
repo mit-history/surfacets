@@ -4,8 +4,10 @@ import pack from './results.i18n.json';
 import datePack from './../common/date.i18n.json';
 import Icon from '../common/icon';
 
-class ResultsRecordDetails extends Component {
+class ResultsRecordDetails extends Component {  
   render() {
+    const calendarLinkSuffix = "?display=2";
+
     return (
       <div className='results-record__body'>
         <div>
@@ -21,7 +23,7 @@ class ResultsRecordDetails extends Component {
           {this.props.record.entryLink ? <a href={this.props.record.entryLink} target='_blank'>
             <Icon iconClass={'fa-book results-record__show'} alternate={true}/>
           </a>: null}          
-          <a href={I18N.get('record-analytics', pack)} target='_blank'>
+          <a href={I18N.get('record-analytics', pack) + calendarLinkSuffix} target='_blank'>
             <Icon iconClass={'fa-calendar results-record__calendar'} alternate={true}/>
           </a>
         </div>
