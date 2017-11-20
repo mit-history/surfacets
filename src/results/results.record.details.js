@@ -3,11 +3,22 @@ import I18N from './../common/i18n';
 import pack from './results.i18n.json';
 import datePack from './../common/date.i18n.json';
 import Icon from '../common/icon';
+import {connect} from 'react-redux';
+
+const mapStateToProps = (state) => {
+  console.log(state.filterOn);
+  return {
+    filterOn: state.filterOn
+  };
+}
+
+const DISPLAY_CALENDAR = 'display=2';
+const SEARCH_PARAMETER_SEPARATOR = '&';
 
 class ResultsRecordDetails extends Component {  
   render() {
-    const calendarLinkSuffix = "?display=2";
-
+    const calendarLinkSuffix = this.createCalendarDeeplink(this.props.filterOn);
+    
     return (
       <div className='results-record__body'>
         <div>
@@ -52,7 +63,7 @@ class ResultsRecordDetails extends Component {
         </div>
         {Object.keys(this.props.record.entries).map(entry => 
           <div key={entry} className='results-record__receipts'>
-            <span className='results-record__label'>{I18N.get('record-' + entry, pack)}</span>
+            <span title={pack['record' + entry] ? I18N.get('record-' + entry, pack) : entry} className='results-record__label'>{pack['record' + entry] ? I18N.get('record-' + entry, pack) : entry}</span>
             <span className='results-record__symbol'> : </span>
             <span className='results-record__number'>{I18N.format('record-audiences', pack, this.props.record.entries[entry].quantity)}</span>
             <span className='results-record__symbol'> X </span>
@@ -64,6 +75,12 @@ class ResultsRecordDetails extends Component {
       </div>
     );
   }
+
+  createCalendarDeeplink(filterOn) {
+    return  '?' + DISPLAY_CALENDAR;
+    // TODO - enable once analytics tool support search parameters filtering
+    // return  '?' + Object.keys(filterOn).map(filter => `${filter}=${filterOn[filter]}`).concat(DISPLAY_CALENDAR).join(SEARCH_PARAMETER_SEPARATOR);
+  }
 }
 
-export default ResultsRecordDetails;
+export default connect(mapStateToProps)(ResultsRecordDetails);

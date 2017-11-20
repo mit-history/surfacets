@@ -14,8 +14,8 @@ const RECORD_DATE = /div class="date">.*<\/a>\s*(\d{2})\/(\d{2})\/(\d{4})\s{1}\(
 const RECORD_DATE_NOLINK = /<div class="date">\s*<dt>[A-zÀ-ÿ\s\d]+<\/dt>\s*<dd>\s*(\d{2})\/(\d{2})\/(\d{4})\s{1}\((\w+)\)+.*\s+<\/dd>\s*<\/div>/;
 const RECORD_THEATER = /<div class="theater">\s*<dt>[A-zÀ-ÿ\s\d]+<\/dt>\s*<dd>([A-z\u00C0-\u017F\s\(\)\-,\d&#;:\/\.]+)<\/dd>\s*<\/div>/;
 const RECORD_PIECE = /<div class="play">\s*<dt>[A-zÀ-ÿ\s\d]+<\/dt>\s*<dd>([A-z\u00C0-\u017F\s\(\)\-,\d&#;:\/\.]+)<\/dd>\s+<dt>[A-zÀ-ÿ\s]+<\/dt>\s*<dd>([A-z\u00C0-\u017F\s\(\)\-,\d&#;:\/\.]+)<\/dd>\s*<dt>[A-zÀ-ÿ\s\d]+<\/dt>\s*<dd>([A-z\u00C0-\u017F\s\(\)\-,\d&#;:\/\.]+)<\/dd>/g;
-const RECORD_RECEIPT_ENTRY = /<dt>\s*<div class="quantity">([0-9]+)<\/div>([A-z\s]+)<\/dt>\s*<dd>\s*<div class="price">([A-z0-9\.,\s]+)<\/div>\s*<div class="total">([A-z0-9\.,\s]+)<\/div>\s*<\/dd>/g;
-const RECORD_RECEIPT = /<dt>Recettes<\/dt>\s*<dd>\s*<div class="daily total">L\. ([0-9,]+)<\/div>\s*<\/dd>/;
+const RECORD_RECEIPT_ENTRY = /<dt>\s*<div class="quantity">([0-9]+)<\/div>([A-z\u00C0-\u017F\s\(\)\-,\d&#;:\/\.]+)<\/dt>\s*<dd>\s*<div class="price">([A-z0-9\.,\s]+)<\/div>\s*<div class="total">([A-z0-9\.,\s]+)<\/div>\s*<\/dd>/g;
+const RECORD_RECEIPT = /<dt>Recettes<\/dt>\s*<dd>\s*<div class="daily total">L\. ([0-9,\s\(\)]+)<\/div>\s*<\/dd>/;
 
 const PIECE_TITLE = "title";
 const PIECE_AUTHOR = "author";
@@ -130,7 +130,10 @@ function createRecord(content) {
     let recordEntry = RECORD_RECEIPT_ENTRY.exec(content);
     while(recordEntry) {
       const place = recordEntry[2];
-      const entry = Object.keys(RECEIPT_SECTIONS).filter(key => key === place).map(key => RECEIPT_SECTIONS[key]);
+      let entry = Object.keys(RECEIPT_SECTIONS).filter(key => key === place).map(key => RECEIPT_SECTIONS[key]);
+      if(!entry || entry.length === 0) {
+        entry = place;
+      }
       record.entries[entry] = {
         quantity: recordEntry[1],
         price: recordEntry[3],

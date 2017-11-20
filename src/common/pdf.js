@@ -33,7 +33,7 @@ class PDFGenerator {
     y += 0.3;
     this.pdf.setFontSize(12);
     Object.keys(record.entries).forEach(entry => {
-      this.addSmallTextLine(I18N.get('record-' + entry, pack), 
+      this.addSmallTextLine(pack['record-' + entry] ? I18N.get('record-' + entry, pack) : entry, 
         I18N.format('record-audiences', pack, record.entries[entry].quantity), 
         record.entries[entry].price,
         record.entries[entry].total,
@@ -59,7 +59,7 @@ class PDFGenerator {
 
   addSmallTextLine(label, count, price, total, y) {
     this.pdf.setFontStyle('bold');
-    this.pdf.text(label, 0.3, y);
+    this.pdf.text(this.addEllipsis(label, 18), 0.3, y);
     this.pdf.setFontStyle('normal');
     this.pdf.text(' : ', 2, y);
     this.pdf.text(count, 2.5, y);
@@ -67,6 +67,10 @@ class PDFGenerator {
     this.pdf.text(price, 4.5, y);
     this.pdf.text(' = ', 5.5, y);
     this.pdf.text(total, 6, y);
+  }
+
+  addEllipsis(text, count) {
+    return text.length > count ? `${text.substr(0, count - 1)} ...` : text;
   }
 }
 
