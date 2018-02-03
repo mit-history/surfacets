@@ -5,6 +5,8 @@ import pack from './facets.i18n.json';
 import {activateDomain} from '../domains/action';
 import FacetUtils from './facet.utils';
 import {connect} from 'react-redux';
+import { DragSource } from 'react-dnd';
+import {ItemTypes} from './../common/constants';
 
 const mapStateToProps = (state) => {  
   
@@ -13,20 +15,31 @@ const mapStateToProps = (state) => {
   };
 }
 
+const domainSource = {   
+  beginDrag(props) {
+    return props.domain;
+  }
+};
+
+function collect(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource()    
+  }
+}
+
 class FacetDomain extends Component {
   constructor(props) {
     super(props);
     this.state = {domain: this.props.domain};
-    this.handleDragStart = this.handleDragStart.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
   render() {
-    return (
-      <div draggable={true}
+    const { connectDragSource } = this.props;
+
+    return connectDragSource(
+      <div
         id={this.props.domain.resource}
-        data={this.props.domain.index}
-        onDragStart={this.handleDragStart}
         onClick={this.handleClick} 
         className={['facet-domain'].concat(
           this.props.empty ? 'facet-domain--empty' : []
@@ -38,13 +51,6 @@ class FacetDomain extends Component {
     );
   }
 
-  handleDragStart(event) {
-    event.dataTransfer.setData('text', event.target.id);
-    if(event.nativeEvent && event.nativeEvent.target) {
-      event.dataTransfer.setData('index', event.nativeEvent.target.getAttribute('data'));
-    }
-  }
-
   handleClick(event) {
     if(!this.props.empty) {
       this.props.dispatch(activateDomain(this.state.domain.resource, 
@@ -53,6 +59,4 @@ class FacetDomain extends Component {
   }
 }
 
-FacetDomain = connect(mapStateToProps)(FacetDomain);
-
-export default FacetDomain;
+export default connect(mapStateToProps)(DragSource(ItemTypes.DOMAIN, domainSource, collect)(FacetDomain));

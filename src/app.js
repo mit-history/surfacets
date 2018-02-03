@@ -4,6 +4,8 @@ import Main from './layout/main/main';
 import I18N from './common/i18n';
 import './app.css';
 import pack from './app.i18n.json'
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 class App extends Component {
   constructor(props) {
@@ -22,4 +24,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default DragDropContext(HTML5Backend)(App);

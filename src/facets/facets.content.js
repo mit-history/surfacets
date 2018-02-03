@@ -4,6 +4,10 @@ import './facets.content.css';
 import FacetUtils from './facet.utils';
 import {activateDomain} from '../domains/action';
 import {connect} from 'react-redux';
+import { DropTarget } from 'react-dnd';
+import {ItemTypes} from './../common/constants';
+
+const FACETS_CONTENT_ID = 'active-facets';
 
 const mapStateToProps = (state) => {
   return {
@@ -11,7 +15,26 @@ const mapStateToProps = (state) => {
   };
 }
 
-const FACETS_CONTENT_ID = 'active-facets';
+const facetContentTarget = {
+  drop(props, monitor, component) {
+    const item = monitor.getItem();
+    const facets = document.getElementById(FACETS_CONTENT_ID);
+    const clientRect = facets.getBoundingClientRect();
+    const {x} = monitor.getClientOffset();
+    const index = Math.floor((x / (clientRect.width - clientRect.x)) * 6);
+    let domain = item.id;
+    let fromIndex = parseInt(item.index, 10);
+    props.dispatch(activateDomain(domain, index + 1, fromIndex));
+
+  }
+}
+
+function collect(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver()
+  };
+}
 
 class FacetsContent extends Component {
   constructor(props) {
@@ -40,10 +63,10 @@ class FacetsContent extends Component {
   }
 
   render() {
-    return (
-      <section id={FACETS_CONTENT_ID} onDragOver={this.allowDrop} 
-        onDragLeave={this.leave}
-        onDrop={this.drop} 
+    const { connectDropTarget } = this.props;
+
+    return connectDropTarget(
+      <section id={FACETS_CONTENT_ID}        
         className='facets-content'>
         {this.props.sortedDomains.map(domain => 
           <Facet key={domain.id} domain={domain} empty={!domain.active} />)}
@@ -52,6 +75,4 @@ class FacetsContent extends Component {
   }
 }
 
-FacetsContent = connect(mapStateToProps)(FacetsContent);
-
-export default FacetsContent;
+export default connect(mapStateToProps)(DropTarget(ItemTypes.DOMAIN, facetContentTarget, collect)(FacetsContent));
