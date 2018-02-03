@@ -12,7 +12,7 @@
   vertical-align: top;
   background-color: $sf-light-background-color;
   overflow-y: auto;
-  
+
   &--empty.facet {
     border: 1px dashed $sf-border-color;
 
@@ -31,10 +31,11 @@
 
   &__remove {
     padding: 0.5em;
+    padding-right:1em;
     display: inline-block;
     position: absolute;
     right: 0;
-    
+
     &.fa {
       font-size: 0.75em;
     }
