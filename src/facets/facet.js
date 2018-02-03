@@ -44,7 +44,7 @@ class Facet extends Component {
   }
 
   handleRemoveDomain() {
-    this.props.dispatch(activateDomain(this.props.domain.id, -1));
+    this.props.dispatch(activateDomain(this.props.domain.id, undefined));
   }
 }
 
