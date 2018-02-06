@@ -63,7 +63,7 @@ class ResultsRecordDetails extends Component {
         </div>
         {Object.keys(this.props.record.entries).map(entry => 
           <div key={entry} className='results-record__receipts'>
-            <span title={pack['record' + entry] ? I18N.get('record-' + entry, pack) : entry} className='results-record__label'>{pack['record' + entry] ? I18N.get('record-' + entry, pack) : entry}</span>
+            <span title={pack['record-' + entry] ? I18N.get('record-' + entry, pack) : entry} className='results-record__label'>{pack['record-' + entry] ? I18N.get('record-' + entry, pack) : entry}</span>
             <span className='results-record__symbol'> : </span>
             <span className='results-record__number'>{I18N.format('record-audiences', pack, this.props.record.entries[entry].quantity)}</span>
             <span className='results-record__symbol'> X </span>
