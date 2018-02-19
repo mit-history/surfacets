@@ -39,6 +39,14 @@
         "en": "N/A",
         "fr": "Non disponible"
     },
+    "record-lower-lodge": {
+        "en": "Lower lodge",
+        "fr": "Loge basse"
+    },
+    "record-higher-lodge": {
+        "en": "Higher lodge",
+        "fr": "Loge haute"
+    },
     "record-lodge-1": {
         "en": "1st lodges",
         "fr": "1ère loges"
@@ -50,10 +58,14 @@
     "record-lodge-3": {
         "en": "3rd lodges",
         "fr": "3ième loges"
-    },    
+    },
     "record-ground": {
         "en": "On the ground",
         "fr": "Parterre"
+    },
+    "record-ticket-to": {
+        "en": "Ticket to",
+        "fr": "Billet à"
     },
     "record-receipts": {
         "en": "Receipts",
@@ -68,7 +80,7 @@
         "fr": "{0} spectateurs"
     },
     "record-analytics": {
-        "en": "http://cfregisters.org/app",
-        "fr": "http://cfregisters.org/fr/app"
+        "en": "http://cfrp-laval.github.io/analytics/",
+        "fr": "http://cfrp-laval.github.io/analytics/"
     }
 }

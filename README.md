@@ -1218,10 +1218,10 @@ You can find instructions in [Deploying React with Zero Configuration](https://b
 
 Sometimes `npm run build` works locally but fails during deploy via Heroku with an error like this:
 
-```  
+```
 remote: Failed to create a production build. Reason:
 remote: Module not found: Error: Cannot resolve 'file' or 'directory'
-MyDirectory in /tmp/build_1234/src  
+MyDirectory in /tmp/build_1234/src
 ```
 
 This means you need to ensure that the lettercase of the file or directory you `import` matches the one you see on your filesystem or on GitHub.
@@ -1302,6 +1302,30 @@ PORT | :white_check_mark: | :x: | By default, the development web server will at
 HTTPS | :white_check_mark: | :x: | When set to `true`, Create React App will run the development server in `https` mode.
 PUBLIC_URL | :x: | :white_check_mark: | Create React App assumes your application is hosted at the serving web server's root or a subpath as specified in [`package.json` (`homepage`)](#building-for-relative-paths). Normally, Create React App ignores the hostname. You may use this variable to force assets to be referenced verbatim to the url you provide (hostname included). This may be particularly useful when using a CDN to host your application.
 CI | :large_orange_diamond: | :white_check_mark: | When set to `true`, Create React App treats warnings as failures in the build. It also makes the test runner non-watching. Most CIs set this flag by default.
+
+In results.record.detail.js, need to change the link to calendar deponding on environment
+
+Development :
+
+"record-analytics": {
+    "en": "http://localhost:8080",
+    "fr": "http://localhost:8080"
+}
+
+Staging:
+
+"record-analytics": {
+    "en": "http://cfrp-laval.github.io/analytics/",
+    "fr": "http://cfrp-laval.github.io/analytics/"
+}
+
+Productuin
+
+"record-analytics": {
+    "en": "http://cfregisters.org/app",
+    "fr": "http://cfregisters.org/fr/app"
+}
+
 
 ## Troubleshooting
 

@@ -6,7 +6,6 @@ import Icon from '../common/icon';
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
-  console.log(state.filterOn);
   return {
     filterOn: state.filterOn
   };
