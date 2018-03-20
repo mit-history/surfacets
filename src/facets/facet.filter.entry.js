@@ -17,9 +17,10 @@ class FacetFilterEntry extends Component {
   }
 
   render() {
+    // console.log('this.props.filter', this.props.filter);
     return (
         <tr className='facet-filter__entry' onClick={this.handleClick}>
-          <td className='facet-filter__name' title={this.props.filter.name}>{this.props.filter.name}</td>
+          <td className='facet-filter__name' title={this.props.filter.id}>{this.props.filter.id}</td>
           <td className='facet-filter__count'>{this.props.filter.count}</td>
         </tr>);
   }

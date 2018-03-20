@@ -15,17 +15,22 @@ class ResultsBar extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.last_count = 0;
   }
-  
+
   render() {
     let count = '-';
+    this.animate_header = false;
     if(this.props.results.records && this.props.results.records[0]) {
       count = this.props.results.records[0].total;
+      if (this.last_count != count) {
+        this.animate_header = true;
+      }
     }
 
     return (
-      <header 
-      className='results-bar'
+      <header
+      className={this.animate_header ? "highlight-change results-bar" :" results-bar"}
       onClick={this.handleClick}>
         <h3 className='results-bar__title'>{I18N.format('entries', pack, count)}</h3>
         <span className='results-bar__arrow'>

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Button from './../common/button';
 import I18N from './../common/i18n';
 import pack from './facets.i18n.json';
+import {clearFilters, refreshFilters} from '../filters/action';
 import {resetDomains, activateDomains} from '../domains/action';
+import {fetchResultsIfNeeded, resetResults} from '../results/action';
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
@@ -32,6 +34,10 @@ class FacetsToolbarSearch extends Component {
 
   handleClickNewSearch() {
     this.props.dispatch(resetDomains());
+    this.props.dispatch(clearFilters());
+    this.props.dispatch(refreshFilters());
+    this.props.dispatch(resetResults());
+    this.props.dispatch(fetchResultsIfNeeded(0));
   }
 
   handleClickUseAllFilters() {

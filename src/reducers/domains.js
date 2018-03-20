@@ -6,7 +6,7 @@ const DOMAINS = [
   {id: 'genres-facet', resource: 'genres-facet'},
   {id: 'periods-facet', resource: 'periods-facet'},
   {id: 'receipts-facet', resource: 'receipts-facet'},
-  {id: 'theaters-facet', resource: 'theaters-facet'}
+  // {id: 'theaters-facet', resource: 'theaters-facet'} // Enable to show up the theater facet, will need some backend to comply
 ];
 
 function activateDomain(currentDomain, action) {
@@ -23,7 +23,7 @@ function activateDomain(currentDomain, action) {
           active: false
         });
       }
-    } 
+    }
   } else {
     if(!isNaN(action.fromIndex) || action.fromIndex !== action.index) {
       return Object.assign({}, currentDomain, {
@@ -38,7 +38,7 @@ function activateDomain(currentDomain, action) {
     }
   }
 
-  return domain;  
+  return domain;
 }
 
 const domain = (state = {}, action) => {
@@ -56,7 +56,7 @@ const domains = (state = DOMAINS, action) => {
       return state.map(d =>
         domain(d, action)
       );
-    case ACTIVATE_DOMAINS: 
+    case ACTIVATE_DOMAINS:
       return state.map((d, index) =>
         d.active ? d : domain(d, {
           type: ACTIVATE_DOMAIN,

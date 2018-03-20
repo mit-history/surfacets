@@ -32,10 +32,10 @@
   }
 
   &__loading {
-    font-size: 3em;    
+    font-size: 3em;
     opacity: 0.3;
     background-color: white;
-    position: absolute;    
+    position: absolute;
     padding-top: 0.5em;
     height: 6em;
     top: 0;
@@ -47,6 +47,7 @@
   &__entries {
     width: 100%;
     table-layout: fixed;
+    border-spacing: 0;
   }
 
   &__entry {
@@ -56,16 +57,18 @@
 
     &:hover, &:focus {
       .facet-filter__name {
-        text-decoration: underline;
+        text-decoration: none;
       }
+      background-color:lightgrey;
     }
   }
 
   &__name {
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    // text-overflow: ellipsis;
+    // white-space: nowrap;
     overflow: hidden;
     text-align: left;
+    padding:0.3em 0em;
   }
 
   &__count {

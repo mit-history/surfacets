@@ -27,11 +27,21 @@ export const VIEW_MODE_DETAILED = 'detailed';
 
 const RECEIPT_SECTIONS = {
   "Theatre": "theater",
+  "Loge basse": "lower-lodge",
+  "Loge haute": "higher-lodge",
   "Premieres loges": "lodge-1",
   "Secondes Loges": "lodge-2",
   "Troisiemes Loges": "lodge-3",
-  "Parterre": "ground"
+  "Parterre": "ground",
+  "Billet à": "ticket-to",
+  "Places de Premieres à": "ticket-to",
+  "Places de Galerie à": "ticket-to",
+  "Places de Secondes à": "ticket-to",
+  "Places de Parquet à": "ticket-to",
+  "Places de Troisiemes à": "ticket-to",
+  "Places de Paradis à": "ticket-to"
 };
+
 
 function requestResults(filterOn, page) {
   return {
@@ -49,7 +59,7 @@ function receiveResults(content, page) {
     type: RECEIVE_RESULTS,
     records: records,
     page: page,
-    receivedAt: Date.now() 
+    receivedAt: Date.now()
   }
 }
 
@@ -79,10 +89,10 @@ function createRecord(content) {
     const recordNumber = RECORD_NUMBER.exec(content);
     RECORD_NUMBER.lastIndex = 0;
     record.number = parseInt(recordNumber[1], 10) + 1;
-    record.total = recordNumber[2];  
+    record.total = recordNumber[2];
     // record entry
     record.entry = RECORD_ENTRY.exec(content)[1];
-    RECORD_ENTRY.lastIndex = 0;  
+    RECORD_ENTRY.lastIndex = 0;
     const recordTheater = RECORD_THEATER.exec(content);
     if(recordTheater) {
       record.theater = recordTheater[1].trim();
@@ -131,6 +141,8 @@ function createRecord(content) {
     while(recordEntry) {
       const place = recordEntry[2];
       let entry = Object.keys(RECEIPT_SECTIONS).filter(key => key === place).map(key => RECEIPT_SECTIONS[key]);
+
+      // TODO maybe here ?
       if(!entry || entry.length === 0) {
         entry = place;
       }
@@ -141,7 +153,7 @@ function createRecord(content) {
       };
       recordEntry = RECORD_RECEIPT_ENTRY.exec(content);
     }
-  }  
+  }
   record.content = content;
 
   return record;
@@ -151,8 +163,8 @@ function convertValue(value) {
   return value.replace(/&#x27;/g, "'");
 };
 
-function shouldFetchResults(state, page, dispatch) { 
-  let fetch = true; 
+function shouldFetchResults(state, page, dispatch) {
+  let fetch = true;
   let results = state.results[page];
 
   if (!results) {
@@ -164,9 +176,9 @@ function shouldFetchResults(state, page, dispatch) {
   } else if(results && results.isFetching) {
     fetch = false;
   }
-   
-  return fetch; 
-} 
+
+  return fetch;
+}
 
 export function fetchResultsIfNeeded(page) {
   return (dispatch, getState) => {
@@ -178,14 +190,14 @@ export function fetchResultsIfNeeded(page) {
 
 export function showResults() {
   return {
-    type: SHOW_RESULTS, 
+    type: SHOW_RESULTS,
     opened: true
   }
 };
 
 export function hideResults() {
   return {
-    type: HIDE_RESULTS, 
+    type: HIDE_RESULTS,
     opened: false
   }
 };

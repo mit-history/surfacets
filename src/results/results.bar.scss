@@ -3,9 +3,9 @@
 
 .results-bar {
   @include sf-border-radius(4px 4px 0 0);
-  
+
   background-color: $sf-alternate-color;
-  margin-top: 1em; 
+  margin-top: 1em;
   cursor: pointer;
   text-align: center;
   position: relative;
@@ -38,7 +38,7 @@
 
   &__arrow {
     @include sf-border-radius(4px 4px 0 0);
-    
+
     background-color: $sf-alternate-color;
     cursor: pointer;
     position: absolute;
@@ -48,7 +48,23 @@
     display: inline-block;
     top: -0.675em;
   }
+
+  &.highlight-change {
+    animation: highlight 0.2s;
+    animation-iteration-count: 5;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes highlight {
+    0% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity:1;
+    }
+  }
 }
+
 
 .chevron {
   position:relative;
@@ -61,16 +77,16 @@
     content:"";
     border:10px solid transparent;
   }
-  
+
   &--up {
     top: -0.30em;
     left: -0.66em;
-    
+
     &:before {
       bottom:0;
       border-bottom-color: white;
     }
-    
+
     &:after {
       bottom:-3px;
       border-bottom-color: $sf-alternate-color;
@@ -80,16 +96,16 @@
   &--down {
     bottom: -0.30em;
     left: -0.66em;
-    
+
     &:before {
       top:0;
       border-top-color: white;
     }
-    
+
     &:after {
       top:-3px;
       border-top-color: $sf-alternate-color;
     }
   }
-  
+
 }

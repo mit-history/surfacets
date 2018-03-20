@@ -9,7 +9,7 @@ import Icon from './../common/icon';
 
 const mapStateToProps = (state) => {
   return {
-    sortFunction: state.sort.sortFunction, 
+    sortFunction: state.sort.sortFunction,
     filtersByPayload: state.filtersByPayload
   };
 }
@@ -27,23 +27,23 @@ class FacetFilter extends Component {
     const loading = this.isLoading();
     return (
         <section className='facet-filter'>
-          <h5 className='facet-filter__title' 
+          <h5 className='facet-filter__title'
             dangerouslySetInnerHTML={{__html: I18N.get(this.props.filter.resource, pack)}}></h5>
           <input className='facet-filter__search'
             name='search'
-            onChange={this.handleChange} 
-            type='text' 
+            onChange={this.handleChange}
+            type='text'
             placeholder={I18N.get('search', pack)}/>
-          <section className='facet-filter__list'>            
+          <section className='facet-filter__list'>
             {loading ?
               <div className='facet-filter__loading'><Icon iconClass={'fa-pulse fa-spinner'} alternate={true}/></div> :
               <table className='facet-filter__entries'>
                 <tbody>
-                { data ? 
-                  data.map(filter => 
+                { data ?
+                  data.map(filter =>
                   <FacetFilterEntry key={filter.id} filter={filter} payload={this.props.filter.payload}/>) : null}
                 </tbody>
-              </table>                        
+              </table>
             }
           </section>
         </section>
@@ -56,19 +56,19 @@ class FacetFilter extends Component {
 
   listFilters() {
     const {filtersByPayload, filter} = this.props;
-    const filterExp = new RegExp(this.state ? '^' + this.state.search: '', 'i');
-    let data = filtersByPayload && 
-      filter && 
+    const filterExp = new RegExp(this.state ? this.state.search: '', 'i'); // Before was: new RegExp(this.state ? '^' + this.state.search: '', 'i');
+    let data = filtersByPayload &&
+      filter &&
       filtersByPayload[filter.payload] ? filtersByPayload[filter.payload].data : [];
     return data.filter(currentFilter => (currentFilter ? currentFilter.name.search(filterExp) !== -1 : false)).sort(this.props.sortFunction);
   }
 
   isLoading() {
-    const loading = 
-      this.props.filtersByPayload && 
-      this.props.filter && 
-      this.props.filtersByPayload[this.props.filter.payload] && 
-      this.props.filtersByPayload[this.props.filter.payload].isFetching;    
+    const loading =
+      this.props.filtersByPayload &&
+      this.props.filter &&
+      this.props.filtersByPayload[this.props.filter.payload] &&
+      this.props.filtersByPayload[this.props.filter.payload].isFetching;
 
     return loading;
   }
