@@ -68,7 +68,7 @@ function fetchResults(state, page) {
     dispatch(requestResults(state.filterOn, page));
     const requestFilter = makeFilter(state.filterOn);
     const forPage = `&offset=${page * RECORD_PER_PAGE}&limit=${RECORD_PER_PAGE}`;
-    return fetch(`http://app.cfregisters.org/registers/results?${requestFilter}utf8=%25E2%259C%2593${forPage}`)
+    return fetch(`https://app.cfregisters.org/registers/results?${requestFilter}utf8=%25E2%259C%2593${forPage}`)
       .then(response => response.text())
       .then(text => dispatch(receiveResults(text, page)));
   }

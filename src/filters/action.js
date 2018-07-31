@@ -27,7 +27,7 @@ function receiveFilters(filter, json) {
         count: entry[1]
       }
     }),
-    receivedAt: Date.now() 
+    receivedAt: Date.now()
   }
 }
 
@@ -35,7 +35,7 @@ function fetchFilters(state, filter) {
   return dispatch => {
     dispatch(requestFilters(filter));
     const requestFilter = makeFilter(state.filterOn);
-    return fetch(`http://app.cfregisters.org/registers/counts/${filter}.json?${requestFilter}utf8=%25E2%259C%2593`)
+    return fetch(`https://app.cfregisters.org/registers/counts/${filter}.json?${requestFilter}utf8=%25E2%259C%2593`)
       .then(response => response.json())
       .then(json => dispatch(receiveFilters(filter, json)))
   }
@@ -54,8 +54,8 @@ function shouldFetchFilters(state, filter) {
   const filters = state.filtersByPayload[filter];
   if (filters && filters.isFetching) {
     fetch = false
-  } 
-  
+  }
+
   return fetch;
 }
 

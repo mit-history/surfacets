@@ -27,7 +27,7 @@ class HeaderContent extends Component {
             {I18N.get('title', pack)}
         </h1>
         <div className='header__search'>
-          <form action={'http://cfregisters.org/' + I18N.lang() + '/search/results'}>
+          <form action={'https://www.cfregisters.org/' + I18N.lang() + '/search/results'}>
             <input id={SEARCH_FIELD_ID} type='text' tabIndex='0' name='q' placeholder={I18N.get('placeholder', pack)}/>
             <Icon iconClass={'fa-search'} alternate={true}/>            
           </form>

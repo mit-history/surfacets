@@ -4,8 +4,8 @@
         "fr": "Projet des registres de la Comédie-Française"
     },
     "title-url": {
-        "en": "http://cfregisters.org/en/",
-        "fr": "http://cfregisters.org/fr/"
+        "en": "https://www.cfregisters.org/en/",
+        "fr": "https://www.cfregisters.org/fr/"
     },
     "placeholder": {
         "en": "Search",
@@ -28,32 +28,32 @@
         "fr": "Le projet"
     },
     "project-url": {
-        "en": "http://cfregisters.org/en/project-history",
-        "fr": "http://cfregisters.org/fr/historique-du-projet"
+        "en": "https://www.cfregisters.org/en/project-history",
+        "fr": "https://www.cfregisters.org/fr/historique-du-projet"
     },
     "encyclopedia": {
         "en": "Scholarly Resources",
         "fr": "Espace encyclopédique"
     },
     "encyclopedia-url": {
-        "en": "http://cfregisters.org/en/scholarly-resources",
-        "fr": "http://cfregisters.org/fr/espace-encyclopédique"
+        "en": "https://www.cfregisters.org/en/scholarly-resources",
+        "fr": "https://www.cfregisters.org/fr/espace-encyclopédique"
     },
     "pedagogia": {
         "en": "Teaching Resources",
         "fr": "Espace pédagogique"
     },
     "pedagogia-url": {
-        "en": "http://cfregisters.org/en/teaching-resources",
-        "fr": "http://cfregisters.org/fr/espace-pédagogique"
+        "en": "https://www.cfregisters.org/en/teaching-resources",
+        "fr": "https://www.cfregisters.org/fr/espace-pédagogique"
     },
     "registers": {
         "en": "Registers",
         "fr": "Registres"
     },
     "registers-url": {
-        "en": "http://cfregisters.org/en/registers",
-        "fr": "http://cfregisters.org/fr/registres"
+        "en": "https://www.cfregisters.org/en/registers",
+        "fr": "https://www.cfregisters.org/fr/registres"
     },
     "tools": {
         "en": "Tools",

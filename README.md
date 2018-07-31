@@ -1322,8 +1322,8 @@ Staging:
 Productuin
 
 "record-analytics": {
-    "en": "http://cfregisters.org/app",
-    "fr": "http://cfregisters.org/fr/app"
+    "en": "https://www.cfregisters.org/app",
+    "fr": "https://www.cfregisters.org/fr/app"
 }
 
 
