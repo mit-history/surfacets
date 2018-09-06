@@ -80,7 +80,7 @@
         "fr": "{0} spectateurs"
     },
     "record-analytics": {
-        "en": "http://cfrp-laval.github.io/analytics/",
-        "fr": "http://cfrp-laval.github.io/analytics/"
+        "en": "https://www.cfregisters.org/app",
+        "fr": "https://www.cfregisters.org/app"
     }
 }
